@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор соревнований</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Manrope:wght@500&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="../../static/choose.css">
 </head>
-<body>
 
+<body>
+<main class="main">
+    <section class="square">
+        <div class="container">
+            <h1 class="section-title">Выбор соревнования</h1>
+            <form th:action="@{/competition}" class="formComp" method="POST">
+                <p class="form__text">Название соревнования</p>
+                <input type="text" placeholder="Введите название соревнования" class="form__input" th:field="${competition.name}">
+                <p class="form__text">Место проведения соревнования</p>
+                <input type="text" placeholder="Введите место проведения соревнования" class="form__input" th:field="${competition.place}">
+                <p class="form__text">Дата проведения соревнования</p>
+                <input type="date" placeholder="ДД / ММ / ГГГГ" class="form__input" th:field="${competition.date}">
+                <p class="form__text">Загрузка логотипа турнира</p>
+                <label for="upload-logo" class="custom-file-upload">
+                    Загрузить файл
+                    <img src="../../static/upload.svg" alt="Upload Icon" class="upload-icon">
+                    <input id="upload-logo" type="file" style="display: none;">
+                </label>
+            </form>
+            <button class="createCompt">Создать соревнование</button>
+        </div>
+    </section>
+</main>
 </body>
 </html>
