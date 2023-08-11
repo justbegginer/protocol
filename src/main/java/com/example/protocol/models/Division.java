@@ -1,6 +1,5 @@
 package com.example.protocol.models;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,29 +9,22 @@ import lombok.Setter;
 
 import java.util.List;
 
-
 @Entity
-@Table(name = "competition")
+@Table(name = "division")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Competition {
+public class Division {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
+    private Long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "fullness")
+    private int fullness;
 
-    private String place;
-
-    private String date;
-
-    @Column(name = "logo_name")
-    private String logoName;
-
-    @JsonIgnoreProperties({"competition"})
-    @OneToMany(mappedBy = "competition")
+    @JsonIgnoreProperties({"division"})
+    @OneToMany(mappedBy = "division")
     private List<Sportsman> sportsmen;
 }

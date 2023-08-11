@@ -1,6 +1,6 @@
 package com.example.protocol.models;
 
-
+import com.example.protocol.entity.ShieldIndex;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,29 +10,23 @@ import lombok.Setter;
 
 import java.util.List;
 
-
 @Entity
-@Table(name = "competition")
+@Table(name = "shield")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Competition {
+public class Shield {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
+    @Column(name = "number")
+    private int number;
+    @Column(name = "index")
+    private ShieldIndex index;
 
-    private String name;
-
-    private String place;
-
-    private String date;
-
-    @Column(name = "logo_name")
-    private String logoName;
-
-    @JsonIgnoreProperties({"competition"})
-    @OneToMany(mappedBy = "competition")
+    @JsonIgnoreProperties({"shield"})
+    @OneToMany(mappedBy = "shield")
     private List<Sportsman> sportsmen;
+
 }
