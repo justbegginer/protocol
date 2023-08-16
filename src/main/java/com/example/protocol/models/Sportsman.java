@@ -21,37 +21,38 @@ public class Sportsman {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "name")
+    //@Column(name = "name")
     private String name;
 
-    @Column(name = "surname")
+    //@Column(name = "surname")
     private String surname;
 
     private String fatherName;
 
-    @Column(name = "date")
+    //@Column(name = "date")
     private String date;
 
     private Gender gender;
 
     private BowClass bowClass;
 
-    @Column(name = "category")
+    //@Column(name = "category")
     private Category category;
 
-    @Column(name = "region")
+    //@Column(name = "region")
     private String region;
 
     private String federationMembership;
 
-    @Column(name = "club")
+    //@Column(name = "club")
     private String club;
 
     private String telephoneNumber;
 
+    @Column(name = "competition_id")
     private int competitionId;
 
-    @Column(name = "mark")
+    //@Column(name = "mark")
     private boolean isMark;
 
     @ManyToOne

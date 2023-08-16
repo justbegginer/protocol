@@ -1,5 +1,6 @@
 package com.example.protocol.controllers;
 
+import com.example.protocol.dao.services.DivisionService;
 import com.example.protocol.dao.services.SportsmanService;
 import com.example.protocol.models.Competition;
 import com.example.protocol.models.Sportsman;
@@ -13,9 +14,12 @@ import org.springframework.web.bind.annotation.*;
 public class SportsmanController {
     private SportsmanService sportsmanService;
 
+    private DivisionService divisionService;
+
     @Autowired
-    public SportsmanController(SportsmanService sportsmanService){
+    public SportsmanController(SportsmanService sportsmanService, DivisionService divisionService) {
         this.sportsmanService = sportsmanService;
+        this.divisionService = divisionService;
     }
 
     @GetMapping
@@ -26,20 +30,14 @@ public class SportsmanController {
 
     @GetMapping("/{id}") // информация о конкретном спортсменом
     public String getCompetition(Model model,
-                                 @PathVariable("id") int id){
+                                 @PathVariable("id") int id) {
         model.addAttribute("sportsman", sportsmanService.findById(id));
         return "sportsman/get";
     }
 
-    @GetMapping("/add_new") // страница с добавлением нового спортсмена
-    public String pageToAddNew(Model model){
-        model.addAttribute("sportsman", new Competition());
-        return "sportsman/add";
-    }
-
-    @PostMapping // запрос на который надо перенаправиться после заполнения
-    public String addToDb(@ModelAttribute("sportsman") Sportsman sportsman){
-        sportsmanService.save(sportsman);
-        return "redirect:/sportsman";
+    @DeleteMapping("/{id}")
+    public String deleteSportsman(@PathVariable("id") int id) {
+        sportsmanService.delete(sportsmanService.findById(id).get());
+        return "redirect:/sportsman/registration";
     }
 }

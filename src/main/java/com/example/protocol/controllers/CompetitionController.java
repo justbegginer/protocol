@@ -32,14 +32,15 @@ public class CompetitionController {
     }
 
     @GetMapping("/add_new") // страница с добавлением нового соревнования соревнования
+    //TODO 1
     public String pageToAddNew(Model model){
         model.addAttribute("competition", new Competition());
-        return "competition/add";
+        return "competition/index";
     }
 
     @PostMapping // запрос на который надо перенаправиться после заполнения
     public String addToDb(@ModelAttribute("competition") Competition competition){
         competitionService.save(competition);
-        return "redirect:/competition";
+        return "redirect:/sportsman/add_new";
     }
 }
