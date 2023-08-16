@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <link href="../../static/css/popup.css" rel="stylesheet">
+  <link href="../../static/css/pre-reg.css" rel="stylesheet">
+  <link href="../../static/css/styles.css" rel="stylesheet">
+  <title>Предварительная регистрация</title>
+</head>
+<body>
+<header class="menu-container">
+  <meta charset="UTF-8">
+  <link href="../../static/css/menu.css" rel="stylesheet">
+  <div class="menu">
+    <a class="menu-item menu-item--active" href="#">Предварительная регистрация</a>
+    <a class="menu-item" href="reg.html">Регистрация</a>
+    <a class="menu-item" href="draw.html">Жеребьёвка</a>
+    <a class="menu-item" href="#">Промежуточные результаты</a>
+    <a class="menu-item" href="#">Итоговые результаты</a>
+    <a class="menu-item" href="finalGrids.html">Формирование финальных сеток</a>
+    <a class="menu-item" href="#">Финальные результаты спарринга</a>
+  </div>
+</header>
+<h1>Предварительная регистрация</h1>
+<h3>Для регистрации заполните все поля или
+  <br>загрузите данные из Google-таблицы</h3>
+<form action="/submit" method="post">
+  <label>Загрузите данные из Google-таблицы</label>
+  <br>
+  <input class="google-file" type="url" name="google_url" placeholder="Ведите ссылку на таблицу">
+</form>
+<div class="container">
+  <div class="box">
+    <form action="#" method="get" enctype="multipart/form-data">
+      <label>ФИО</label>
+      <br><input type="text" placeholder="Введите ФИО">
+    </form>
+    <form class="gender" action="#" method="get" enctype="multipart/form-data">
+      <label>Пол</label>
+      <p><input type="radio" name="gender" value="male">Мужчина</p>
+      <p><input type="radio" name="gender" value="female">Женщина</p>
+    </form>
+    <form action="#" method="get" enctype="multipart/form-data">
+      <label for="razryad">Спортивный разряд/звание</label>
+      <br>
+      <select id="razryad" name="razryad">
+        <option value="choice">Выберите разряд</option>
+        <option value="1">1 разряд</option>
+        <option value="2">2 разряд</option>
+        <option value="3">3 разряд</option>
+        <option value="kms">КМС</option>
+        <option value="ms">МС</option>
+        <option value="msmk">МСМК</option>
+      </select>
+    </form>
+    <form action="#" method="get" enctype="multipart/form-data">
+      <label>Членство в спортивной федерации</label>
+      <br><input type="text" placeholder="Введите членство">
+    </form>
+    <form action="#" method="get" enctype="multipart/form-data">
+      <label>Номер телефона</label><br>
+      <input type="tel" placeholder="+7 (999) 999 99-99" pattern="\+7 \(\d{3}\) \d{3} \d{2}-\d{2}" required>
+    </form>
+  </div>
+
+  <div class="box">
+    <form action="#" method="get" enctype="multipart/form-data">
+      <label>Дата рождения</label>
+      <br><input type="date" id="date" name="date" placeholder="ДД / ММ / ГГГГ">
+    </form>
+    <form action="#" method="get" enctype="multipart/form-data">
+      <label for="class">Класс лука</label> <br>
+      <select id="class" name="class">
+        <option value="choice">Выберите класс лука</option>
+        <option value="block">Блочный лук</option>
+        <option value="classic">Классический лук</option>
+      </select>
+    </form>
+    <form action="#" method="get" enctype="multipart/form-data">
+      <label>Регион</label>
+      <br><input type="text" id="place" name="place" placeholder="Ведите регион">
+    </form>
+    <form action="#" method="get" enctype="multipart/form-data">
+      <label>Клубная принадлежность</label>
+      <br><input type="text" id="club" name="club" placeholder="Введите клуб">
+    </form>
+  </div>
+</div>
+<button class="openPopup" type="submit">Зарегистрировать</button>
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <button id="closePopup">
+      <img src="../../static/pics/close.svg" alt="Close">
+    </button>
+    <img class = "ok" src="../../static/pics/checkMark.svg">
+    <p class="done">Участник <br>
+      зарегистрирован</p>
+    <div class="button-container">
+      <button id="gotoReg">Перейти к регистрации</button>
+      <button id="addAnotherMember">Добавить нового участника +</button>
+    </div>
+  </div>
+</div>
+<script src="../../static/js/openPupup.js"></script>
+</body>
+</html>

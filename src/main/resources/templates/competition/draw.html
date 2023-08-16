@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Жеребьёвка</title>
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Manrope:wght@500&display=swap"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="../../static/css/draw.css">
+  <link rel="stylesheet" href="../../static/css/menu.css">
+  <link rel="stylesheet" href="../../static/css/styles.css">
+</head>
+
+<body>
+<header class="menu-container">
+  <div class="menu">
+    <a class="menu-item " href="mainPage.html">Предварительная регистрация</a>
+    <a class="menu-item " href="reg.html">Регистрация</a>
+    <a class="menu-item menu-item--active" href="draw.html">Жеребьёвка</a>
+    <a class="menu-item " href="intermediateResult.html">Промежуточные результаты</a>
+    <a class="menu-item " href="#">Итоговые результаты</a>
+    <a class="menu-item " href="finalGrids.html">Формирование финальных сеток</a>
+    <a class="menu-item " href="#">Финальные результаты спарринга</a>
+
+  </div>
+</header>
+<p class="head">Жеребьёвка</p>
+  <div class="square-container">
+    <div class="square">
+      <div class="column">
+        <label class="label__drawTop">Выбор дивизиона
+          <select class="input__chooseTop">
+            <option value="">Выберите дивизион</option>
+            <option value="">Дивизион 1</option>
+            <option value="">Дивизион 2</option>
+          </select>
+        </label>
+        <label class="label__division">Диапазон номеров
+          <div class="range-inputs">
+            <input type="text" class="inputStart" placeholder="От:">
+            <input type="text" class="inputEnd" placeholder="До:">
+          </div>
+        </label>
+      </div>
+      <div class="columnTwo">
+        <label class="label__drawTopTwo">Количество щитов
+          <input type="text" class="input__chooseTopTwo" placeholder="Введите количество щитов">
+        </label>
+        <label class="label__draw">Количество подходов
+          <input type="text" class="input__choose" placeholder="Введите количество подходов">
+        </label>
+      </div>
+    </div>
+  </div>
+  <button class="openPopup">Подтвердить</button>
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <button id="closePopup">
+        <img src="../../static/pics/close.svg" alt="Close">
+      </button>
+      <img src="../../static/pics/checkMark.svg">
+      <p class="done">Жеребьёвка выполнена</p>
+      <button id="gotoTable">Перейти к таблице жеребьевки</button>
+      <button id="drawAnotherDivision">Выполнить жеребьевку другого двивизиона +</button>
+    </div>
+  </div>
+  <script src="../../static/js/openPupup.js"></script>
+</header>
+</body>
+
+</html>
