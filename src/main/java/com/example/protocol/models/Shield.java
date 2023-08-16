@@ -20,9 +20,9 @@ public class Shield {
 
     @Id
     private long id;
-    @Column(name = "number")
+    //@Column(name = "number")
     private int number;
-    @Column(name = "index")
+    //@Column(name = "index")
     private ShieldIndex index;
 
     @JsonIgnoreProperties({"shield"})

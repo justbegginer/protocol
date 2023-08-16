@@ -29,7 +29,7 @@ public class Competition {
 
     private String date;
 
-    @Column(name = "logo_name")
+    //@Column(name = "logo_name")
     private String logoName;
 
     @JsonIgnoreProperties({"competition"})

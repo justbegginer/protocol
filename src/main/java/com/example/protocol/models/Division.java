@@ -19,9 +19,9 @@ public class Division {
 
     @Id
     private Long id;
-    @Column(name = "name")
+    //@Column(name = "name")
     private String name;
-    @Column(name = "fullness")
+    //@Column(name = "fullness")
     private int fullness;
 
     @JsonIgnoreProperties({"division"})
