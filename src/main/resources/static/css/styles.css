@@ -1,0 +1,84 @@
+/*@font-face {*/
+/*    font-family: "Manrope";*/
+/*    src: url("/templates/fonts/font-awesome/fonts/fontawesome-webfont.woff2") format('application/font-woff2'),*/
+/*    url("/templates/fonts/font-awesome/fonts/fontawesome-webfont.woff") format('application/font-woff'),*/
+/*    url("/templates/fonts/font-awesome/fonts/fontawesome-webfont.ttf") format('application/x-font-ttf');*/
+/*}*/
+
+/*@font-face {*/
+/*    font-family: 'Manrope';*/
+/*    font-style: normal;*/
+/*    src: url("/templates/fonts/Manrope/Manrope-VariableFont_wght.ttf") format('application/x-font-ttf');*/
+/*}*/
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap');
+
+html{
+    font-family: 'Manrope', sans-serif;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
+
+header{
+    font-family: 'Manrope', sans-serif;
+}
+
+h1{
+    color: #181818;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0.72px;
+    margin-top: 125px;
+    margin-bottom: 0;
+}
+
+h3{
+    color: #898989;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: 0.36px;
+    margin-bottom: 70px;
+    font-family: Manrope, sans-serif;
+}
+
+input:hover{
+    border-radius: 10px;
+    border: 1px solid #3B6F98;
+    background: #F3F7FA;
+}
+
+input:active{
+    border-radius: 10px;
+    border: 1px solid #3B6F98;
+    background: #F3F7FA;
+}
+:focus,:active{outline: none;} /* убираем линии обводки */
+input[type="text"],
+input[type="date"],
+select {
+    padding-left: 20px; /* добавляем отступ слева */
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: #3B6F98;
+    color: #3B6F98;
+    -webkit-text-fill-color: #3B6F98;
+}
+
+.popup-body{
+    font-family: Manrope, sans-serif;
+    font-style: normal;
+}
+
+button{
+    font-family: Manrope, sans-serif;
+    font-style: normal;
+}

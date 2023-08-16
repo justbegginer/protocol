@@ -1,0 +1,219 @@
+
+.head {
+    letter-spacing: 0.7px;
+    margin-top: 140px;
+    margin-bottom: 70px;
+    font-size: 48px;
+    font-weight: 600;
+}
+.square-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.square {
+    width: 1160px;
+    height: 324px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 30px;
+    background: #F3F7FA;
+    gap: 40px;
+}
+
+.column,
+.columnTwo {
+    padding-top: 60px;
+}
+
+/* Стили для labels */
+select, select::placeholder {
+    letter-spacing: 0.3px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+}
+.label__drawTop,
+.label__division,
+.label__draw,
+.label__drawTopTwo {
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    font-size: 20px;
+    box-sizing: border-box;
+    width: 217px;
+    height: 26px;
+    max-width: 200px;
+}
+
+.label__division {
+    margin-left: 60px;
+}
+
+.label__drawTop {
+    font-size: 20px;
+    font-family: Manrope, sans-serif;
+    margin-left: 60px;
+    margin-top: 60px;
+    height: 41px;
+}
+
+/* Стили для inputs */
+
+.input__choose {
+    background-color: #F3F7FA;
+    border: 1px solid #4D8BBA;
+    border-radius: 10px;
+    box-sizing: border-box;
+    height: 41px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    width: 500px;
+    margin-right: 40px;
+}
+.range-inputs {
+    display: flex;
+    box-sizing: border-box;
+    width: 560px;
+}
+
+.inputStart,
+.inputEnd {
+
+    background-color: #F3F7FA;
+    border: 1px solid #4D8BBA;
+    height: 41px;
+    border-radius: 10px;
+    width: 236px;
+    box-sizing: border-box;
+    margin-left: 60px;
+    margin-top: 20px;
+    margin-left: 60px;
+    margin-top: 20px;
+    height: 41px;
+}
+.input__chooseTop::placeholder{
+    letter-spacing: 0.7px;
+    font-family: Manrope, sans-serif;
+}
+.input__chooseTop {
+    color: #73A3C9;
+    font-size: 16px;
+    font-family: Manrope, sans-serif;
+    background-color: #F3F7FA;
+    border: 1px solid #4D8BBA;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    height: 41px;
+    width: 500px;
+    margin-left: 60px;
+}
+.input__chooseTopTwo::placeholder, .input__choose::placeholder, .inputStart::placeholder, .inputEnd::placeholder{
+    letter-spacing: 0.3px;
+    font-family: Manrope, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #73A3C9;
+}
+.input__chooseTopTwo {
+    color: #4D8BBA;
+    background-color: #F3F7FA;
+    border: 1px solid #4D8BBA;
+    border-radius: 10px;
+    box-sizing: border-box;
+    height: 41px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    width: 500px;
+    margin-right: 40px;
+    font-size: 16px;
+    font-weight: 500;
+}
+/* Стили для PopUP */
+
+.openPopup{
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 20px;
+    font-family: 'Manrope', sans-serif;
+    height: 46px;
+    width: 239px;
+    border-radius: 30px;
+    cursor: pointer;
+    background-color: #4D8BBA;
+    color: #fff;
+    border: 0;
+    margin-top: 40px;
+
+}
+.popup {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s;
+}
+#closePopup {
+    border: none;
+    background: transparent;
+    position: absolute;
+    top: 20px;
+    right: 19.64px;
+}
+#gotoTable, #drawAnotherDivision{
+    border-radius: 30px;
+    box-sizing: border-box;
+    height: 46px;
+    width: 485px;
+    border: 1px solid #4D8BBA;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.7px;
+    font-family: 'Manrope', sans-serif;
+}
+#gotoTable{
+    color: #FFFFFF;
+    text-transform: uppercase;
+    background-color: #4D8BBA;
+}
+#drawAnotherDivision{
+    color: #4D8BBA;
+    background-color: #FFFFFF;
+}
+.popup .popup-content {
+    border-radius: 30px;
+    position: relative;
+    background-color: white;
+    width: 800px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.done{
+    font-size: 48px;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    font-family: 'Manrope', sans-serif;
+    margin-top: 35px;
+    margin-bottom: 60px;
+}
+
+.popup.open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition-delay: 0s !important;
+}

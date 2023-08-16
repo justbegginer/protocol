@@ -1,0 +1,364 @@
+h1{
+    margin-bottom: 30px;
+}
+
+h3{
+    color: #4D8BBA;
+    margin-bottom: 60px;
+}
+
+.line{
+    width: 1160px;
+    height: 1px;
+    background: #4D8BBA;
+}
+
+.merge-btn{
+    font-size: 20px;
+    border: none;
+    background-color: white;
+    padding-left: 0;
+    color: #C26060;
+    border-bottom: 1px solid #C26060;
+}
+
+.to-results-btn{
+    margin-top: 60px;
+    margin-bottom: 140px;
+    border-radius: 30px;
+    padding: 10px 45px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #4D8BBA;
+    background: #4D8BBA;
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%; /* 26px */
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+table {
+    border-collapse: collapse;
+    text-align: left;
+    width: 1160px;
+    border-radius: 10px;
+}
+
+.division-container{
+    margin-bottom: 0;
+}
+
+.categories-table{
+    table-layout: fixed;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.categories-table th,
+.categories-table td {
+    border-radius: 0
+}
+
+tbody{
+    table-layout: fixed;
+    width: 1160px;
+    text-align: left;
+}
+
+.tbody-container{
+    display: table;
+    border-radius: 10px;
+    width: 1159px;
+    overflow: hidden;
+}
+
+thead td{
+    font-size: 20px;
+    border-top: 1px solid #4D8BBA;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    width: 296px;
+    text-align: left;
+    padding-left: 0;
+}
+
+thead td#participants{
+    width: 137px;
+    text-align: center;
+}
+
+thead td.enough{
+    width: 221px;
+}
+
+th, td {
+    width: 20%;
+    padding: 20px 15px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: 0.21px;
+    text-align: left;
+    border: 1px solid #CDE2F2;
+}
+
+.intermediate-res{
+    width: unset;
+}
+
+
+.pdf-button{
+    display: flex;
+    width: 221px;
+    border: none;
+    background-color: transparent;
+    color: #4D8BBA;
+}
+
+#toggle{
+    text-align: right;
+    padding-right: 0;
+}
+
+.toggle-button{
+    text-align: left;
+    font-size: 20px;
+    color: #3B6F98;
+
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+tr:nth-child(odd) {
+    background-color: #FFFFFF;
+}
+
+tr:nth-child(even) {
+    background-color: #E5EEF5;
+}
+
+#header-row{
+    color: #4D8BBA;
+    background-color: #E5EEF5;
+    border: 1px solid #CDE2F2;
+    border-radius: 10px;
+}
+
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.20);
+    top: 0;
+    left: 0;
+    transition: all 0.8s ease 0s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.popup-body {
+    width: 800px;
+    height: 774px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 30px;
+    background: #ffffff;
+    padding: 60px;
+}
+
+.popup-text{
+    color: #898989;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%; /* 31.2px */
+    letter-spacing: 0.36px;
+    margin-bottom: 60px;
+    text-align: center;
+    width: 565px;
+    height: 93px;
+    margin-left: 117px;
+}
+
+.popup .popup-content {
+    position: relative;
+    background-color: white;
+    border-radius: 30px;
+    width: 800px;
+    height: 476px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-title h1{
+    margin-top: 0;
+}
+
+.popup.open {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+.popup-close-btn {
+    border: none;
+    width: 35px;
+    height: 35px;
+    background-color: #ffffff;
+}
+
+.popup-text .participants:after {
+    content: attr(data-suffix);
+}
+
+.popup-text .participants[data-count="1"]:after {
+    content: "участник";
+}
+
+.popup-text .participants[data-count="2"]:after,
+.popup-text .participants[data-count="3"]:after,
+.popup-text .participants[data-count="4"]:after {
+    content: "участника";
+}
+
+#closePopup {
+    border: none;
+    background: transparent;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#merge-divisions{
+    margin-top: 60px;
+
+    display: inline-flex;
+    height: 46px;
+    padding: 12px 40px;
+    justify-content: center;
+    align-items: center;
+
+    color: #FFF;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%; /* 23.4px */
+    letter-spacing: 0.27px;
+    text-transform: uppercase;
+
+    border-radius: 30px;
+    border: 1px solid #4D8BBA;
+    background: #4D8BBA;
+}
+
+.new-division-name{
+    font-size: 20px;
+    color: #181818;
+    text-align: left;
+    margin-left: 60px;
+    margin-top: 60px;
+}
+
+input#division{
+    height: 41px;
+}
+
+#division{
+    margin-top: 20px;
+    display: flex;
+    width: 680px;
+    padding: 10px 20px;
+    align-items: center;
+    gap: 10px;
+
+    border-radius: 10px;
+    border: 1px solid #4D8BBA;
+    background: #F3F7FA;
+}
+
+.category-buttons{
+    margin-left: 60px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.scroll{
+    width: 800px;
+    height: 156px;
+    overflow-y: auto;
+}
+
+.scroll::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    background-color: #4D8BBA;
+    border-radius: 4px;
+}
+
+.scroll::-webkit-scrollbar-track {
+    background-color: #CDE2F2;
+    border-radius: 4px;
+}
+
+.category-button{
+    border-radius: 30px;
+    border: 1px solid #F3F7FA;
+    background: #F3F7FA;
+
+    font-size: 16px;
+    margin-left: 20px;
+    margin-bottom: 32px;
+    width: 321px;
+    /*height: 62px;*/
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    white-space: normal;
+}
+
+.category-button:hover{
+    border-radius: 30px;
+    border: 1px solid #F3F7FA;
+    background: #E5EEF5;
+}
+
+.category-button:active{
+    border-radius: 30px;
+    border: 1px solid #4D8BBA;
+    background: #E5EEF5;
+}
+
+.category-button.selected:hover {
+    border-radius: 30px;
+    border: 1px solid #4D8BBA;
+    background: #E5EEF5;
+}
+.selected {
+    border-radius: 30px;
+    border: 1px solid #4D8BBA;
+    background: #E5EEF5;
+}
+
+#saveProtocol{
+    width: 235px;
+    font-size: 20px;
+    margin-top: 40px;
+    border-bottom: #4D8BBA !important;
+}
+
+.pdf-svg{
+    margin-left: 5px;
+    width: 25px;
+    height: 25px;
+}
