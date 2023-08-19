@@ -1,9 +1,9 @@
 
 const newData = {
     icons: `
-    <button class="confirm"><img class="confirm" src="/templates/src/checkbox-marked.svg" alt="/templates/src/checkbox-marked.svg"></button>
-    <button id="openPopup" class="openPopup"><img class="delete" src="/templates/src/close-box.svg" alt="/templates/src/checkbox-marked.svg"></button>
-    <button id="edit" class="edit"><img src="/templates/src/pencil-box.svg" alt="/templates/src/checkbox-marked.svg"></button>`,
+    <button class="confirm"><img class="confirm" src="/src/main/resources/static/pics/checkbox-marked.svg" alt="/src/main/resources/static/pics/checkbox-marked.svg"></button>
+    <button id="openPopup" class="openPopup"><img class="delete" src="/src/main/resources/static/pics/close-box.svg" alt="/src/main/resources/static/pics/close-box.svg"></button>
+    <button id="edit" class="edit"><img src="/src/main/resources/static/pics/pencil-box.svg" alt="/src/main/resources/static/pics/pencil-box.svg"></button>`,
     sportsman: `Тишкина Дарья`,
     date: `29.03.2003`,
     gender: `M`,

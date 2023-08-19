@@ -1,17 +1,4 @@
-/*@font-face {*/
-/*    font-family: "Manrope";*/
-/*    src: url("/templates/fonts/font-awesome/fonts/fontawesome-webfont.woff2") format('application/font-woff2'),*/
-/*    url("/templates/fonts/font-awesome/fonts/fontawesome-webfont.woff") format('application/font-woff'),*/
-/*    url("/templates/fonts/font-awesome/fonts/fontawesome-webfont.ttf") format('application/x-font-ttf');*/
-/*}*/
-
-/*@font-face {*/
-/*    font-family: 'Manrope';*/
-/*    font-style: normal;*/
-/*    src: url("/templates/fonts/Manrope/Manrope-VariableFont_wght.ttf") format('application/x-font-ttf');*/
-/*}*/
-
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400&display=swap');
 
 html{
     font-family: 'Manrope', sans-serif;
@@ -81,4 +68,51 @@ select:focus {
 button{
     font-family: Manrope, sans-serif;
     font-style: normal;
+}
+
+.menu-item.menu-item--active {
+    background-color: #E5EEF5;
+    color: #3B6F98;
+    border-color: #3B6F98;
+}
+.menu-item:hover {
+    background-color: #F3F7FA;
+}
+header {
+    margin-top: 15px;
+    width: 1048px;
+    height: 93px;
+}
+
+.menu-container {
+    font-family: Manrope, sans-serif;
+    background-color: #ffffff;
+}
+
+.menu {
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    display: inline-block;
+    padding: 8px 30px;
+    border: 1px solid #4D8BBA;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #4D8BBA;
+    font-size: 18px;
+    text-align: center;
+}
+
+.menu ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.menu a {
+    position: relative;
+    margin-left: 15px;
+    margin-bottom: 15px;
 }
