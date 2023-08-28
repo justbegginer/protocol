@@ -1,0 +1,114 @@
+h4{
+   margin-top: 30px;
+   width: 664px;
+   margin-bottom: 140px;
+}
+
+#playoff-tree {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+table {
+    background-color: #F3F7FA;
+    border-collapse: separate;  /* Utilize border-spacing */
+    border-spacing: 0px;
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+.table-wrapper {
+    border-radius: 5px;
+    border: 1px solid #4D8BBA;
+    overflow: hidden;
+}
+
+.match{
+    display: flex;
+}
+
+
+line{
+    background: #483938;
+    width: 50px;
+}
+
+.stage-block{
+    display: flex;
+}
+
+th, td {
+    padding: 4px 10px 4px 10px;
+    border: 1px solid #4D8BBA;
+}
+
+.sportsman-name{
+    width: 140px;
+    height: 20px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+input {
+  font-size: 10px;
+}
+
+.result-input {
+  width: 20px;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+}
+
+.total-score{
+    width: 40px;
+    text-align: center;
+}
+
+.result-input:hover{
+  border: none;
+}
+
+.stage-name {
+  font-size: 16px;
+  position: relative;
+  text-align: center;
+  z-index: 1; /* Для того чтобы название стадии было поверх линии */
+}
+
+.stage-name::before {
+  content: "";
+  position: absolute;
+  top: 125%;
+  right: 0;
+  width: 100%;
+  border-top: 1px solid #181818;
+  z-index: -1;
+  margin-bottom: 20px; /* Регулируйте это значение в зависимости от визуальных требований */
+}
+
+.final{
+    margin-top: 160px;
+    margin-bottom: 5px;
+}
+
+.save-btn{
+    display: inline-flex;
+    padding: 10px 45px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 30px;
+    border: 1px solid #4D8BBA;
+    background: #4D8BBA;
+
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%; /* 26px */
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    margin-top: 80px;
+}
