@@ -269,7 +269,7 @@ tr:nth-child(even) {
 }
 
 input#division{
-    height: 41px;
+    height: 31px;
 }
 
 #division{
@@ -286,14 +286,14 @@ input#division{
 }
 
 .category-buttons{
-    margin-left: 60px;
+    margin-left: 40px;
     display: flex;
     flex-wrap: wrap;
 }
 
 .scroll{
     width: 800px;
-    height: 156px;
+    height: 236px;
     overflow-y: auto;
 }
 
@@ -312,19 +312,25 @@ input#division{
 }
 
 .category-button{
+    display: flex;
     border-radius: 30px;
     border: 1px solid #F3F7FA;
     background: #F3F7FA;
 
     font-size: 16px;
     margin-left: 20px;
-    margin-bottom: 32px;
-    width: 321px;
-    /*height: 62px;*/
+    margin-bottom: 20px;
+    width: 720px;
     padding: 10px 20px;
-    justify-content: center;
-    align-items: center;
-    white-space: normal;
+}
+
+.participants-count{
+    color: #4D8BBA;
+}
+
+.category-title {
+    flex: 1;
+    text-align: left;
 }
 
 .category-button:hover{
@@ -344,6 +350,7 @@ input#division{
     border: 1px solid #4D8BBA;
     background: #E5EEF5;
 }
+
 .selected {
     border-radius: 30px;
     border: 1px solid #4D8BBA;

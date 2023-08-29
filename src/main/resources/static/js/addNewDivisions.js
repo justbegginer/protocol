@@ -259,9 +259,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     categoryButton.type = 'button';
                     categoryForm.id = 'categoryForm';
                     categoryButton.classList.add('category-button');
-                    categoryButton.innerHTML = `${categoryTitle}<br>${participantsCount} участников`;
+                    categoryButton.innerHTML = `<span class="category-title">${categoryTitle}</span><span class="participants-count">${participantsCount} участников</span>`;
                     categoryForm.appendChild(categoryButton);
                     categoryButtonsContainer.appendChild(categoryForm);
+                    const participantsCountSpan = categoryButton.querySelector('.participants-count');
                     categoryButton.addEventListener('click', function() {
                         const allCategoryButtons = document.querySelectorAll('.category-button');
                         allCategoryButtons.forEach(button => button.classList.remove('selected'));
@@ -296,4 +297,3 @@ document.addEventListener('DOMContentLoaded', function() {
         popup.classList.remove('open');
     });
 });
-
