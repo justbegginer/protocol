@@ -34,6 +34,16 @@ h3{
     font-family: Manrope, sans-serif;
 }
 
+h4{
+    color: #898989;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0.21px;
+}
+
 input:hover{
     border-radius: 10px;
     border: 1px solid #3B6F98;
