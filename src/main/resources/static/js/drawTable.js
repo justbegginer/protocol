@@ -178,12 +178,24 @@ function generateTable(category) {
         const pdfButton = document.createElement('button');
         pdfButton.className = 'pdf-button';
 
-        fetch('/templates/src/file-pdf-box.svg')
+        fetch('/src/main/resources/static/pics/file-pdf-box.svg')
             .then(response => response.text())
             .then(data => {
-                pdfButton.innerHTML = 'Скачать карточку участника' + data;
+                const pdfButton = document.createElement('button');
+                pdfButton.className = 'pdf-button';
+
+                const textNode = document.createTextNode('Скачать карточку участника');
+
+                const img = new Image();
+                img.src = 'data:image/svg+xml,' + encodeURIComponent(data);
+                img.style.marginLeft = '5px';
+
+                pdfButton.appendChild(textNode);
+                pdfButton.appendChild(img);
+
                 pdfButtonCell.appendChild(pdfButton);
                 sportsmanRow.appendChild(pdfButtonCell);
+
                 pdfButton.addEventListener('click', function() {
                     // generatePdfCard(sportsman);
                 });

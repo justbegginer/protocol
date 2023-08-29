@@ -122,10 +122,8 @@ const categoriesData = [
                 rank: 'Кандидат в мастера спорта',
                 club: 'Клуб 2'
             },
-            // Добавьте других спортсменов
         ]
     },
-    // Добавьте другие категории
 ];
 
 function generateTable(category) {
@@ -143,8 +141,7 @@ function generateTable(category) {
 
     const participantsCell = document.createElement('td');
     participantsCell.id = 'participants';
-    participantsCell.textContent = category.sportsmen.length + ' участников:';     //???
-
+    participantsCell.textContent = category.sportsmen.length + ' участников:';
 
     const toggleButtonCell = document.createElement('td');
     toggleButtonCell.id = 'toggle';
@@ -164,13 +161,15 @@ function generateTable(category) {
         const th = document.createElement('th');
         th.className = 'intermediate-res';
         th.textContent = header;
+        if (th.textContent.length < 6 && th.textContent !== 'Клуб') {
+            th.style.textAlign= 'center';
+        }
         headerRow.appendChild(th);
     });
 
     thead.appendChild(titleCell);
     thead.appendChild(participantsCell);
     thead.appendChild(toggleButtonCell);
-
 
     const tbody = document.createElement('tbody');
     tbody.id = 'myTable';
@@ -184,21 +183,23 @@ function generateTable(category) {
         const columnWidths = ['80px', '200px', '110px', '90px', '200px'];
         const columnWidthsEmpty = ['80px', '80px', '80px', '80px', '80px', '80px'];
 
-
         values.forEach(function (value, index) {
             const td = document.createElement('td');
             td.textContent = value;
             td.style.width = columnWidths[index];
             sportsmanRow.appendChild(td);
+            if (columnWidths[index] === "80px"){
+                td.style.textAlign = "center";
+            }
         });
 
         for (let i = 0; i < 6; i++) {
             const emptyTd = document.createElement('td');
+            emptyTd.classList.add('empty');
             emptyTd.style.width = columnWidthsEmpty[i];
             emptyTd.setAttribute('contenteditable', 'true');
             sportsmanRow.appendChild(emptyTd);
         }
-
         tbody.appendChild(sportsmanRow);
     });
 
