@@ -1,21 +1,18 @@
 .header {
     letter-spacing: 0.7px;
-    margin-top: 140px;
-    margin-bottom: 70px;
     font-size: 48px;
     font-weight: 600;
-
-}   
+}
 
 .shootingParameter {
-
     color: #898989;
     font-size: 24px;
     font-weight: 500;
     letter-spacing: 0.7px;
     width: 270px;
-    margin-left: 400px;
+    margin-bottom: 70px;
 }
+
 .column div {
     margin-bottom: -42px;
 }
@@ -32,10 +29,6 @@
     gap: 40px;
 }
 
-.column {
-    margin-top: 70px;
-}
-
 .columnTwo {
     position: absolute;
     right: 268px;
@@ -43,7 +36,6 @@
 }
 
 .radio-group {
-
     margin-top: 30px;
     display: flex;
     flex-direction: row;
@@ -55,7 +47,7 @@
 .label__distanceTop {
     display: inline-block;
     margin-left: 60px;
-    margin-top: 60px;
+    margin-top: 50px;
     font-weight: 500;
     letter-spacing: 0.3px;
     font-size: 20px;
@@ -93,6 +85,7 @@
     border: none;
     margin-left: 217px;
     margin-top: 30px;
+    margin-bottom: 60px;
     font-size: 16px;
     font-weight: 500;
 }
