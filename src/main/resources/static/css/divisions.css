@@ -7,6 +7,10 @@ h3{
     margin-bottom: 60px;
 }
 
+.draw{
+    margin-bottom: 70px;
+}
+
 .line{
     width: 1160px;
     height: 1px;
@@ -106,17 +110,22 @@ th, td {
     border: 1px solid #CDE2F2;
 }
 
+.empty{
+    text-align: center;
+}
+
 .intermediate-res{
     width: unset;
 }
 
-
 .pdf-button{
     display: flex;
     width: 221px;
-    border: none;
+    white-space: nowrap;
     background-color: transparent;
     color: #4D8BBA;
+    border: none;
+    padding-bottom: 5px;
 }
 
 #toggle{
@@ -147,6 +156,7 @@ tr:nth-child(even) {
     background-color: #E5EEF5;
     border: 1px solid #CDE2F2;
     border-radius: 10px;
+    vertical-align: middle;
 }
 
 .popup {
@@ -269,7 +279,7 @@ tr:nth-child(even) {
 }
 
 input#division{
-    height: 41px;
+    height: 31px;
 }
 
 #division{
@@ -286,14 +296,14 @@ input#division{
 }
 
 .category-buttons{
-    margin-left: 60px;
+    margin-left: 40px;
     display: flex;
     flex-wrap: wrap;
 }
 
 .scroll{
     width: 800px;
-    height: 156px;
+    height: 236px;
     overflow-y: auto;
 }
 
@@ -312,19 +322,25 @@ input#division{
 }
 
 .category-button{
+    display: flex;
     border-radius: 30px;
     border: 1px solid #F3F7FA;
     background: #F3F7FA;
 
     font-size: 16px;
     margin-left: 20px;
-    margin-bottom: 32px;
-    width: 321px;
-    /*height: 62px;*/
+    margin-bottom: 20px;
+    width: 720px;
     padding: 10px 20px;
-    justify-content: center;
-    align-items: center;
-    white-space: normal;
+}
+
+.participants-count{
+    color: #4D8BBA;
+}
+
+.category-title {
+    flex: 1;
+    text-align: left;
 }
 
 .category-button:hover{
@@ -344,6 +360,7 @@ input#division{
     border: 1px solid #4D8BBA;
     background: #E5EEF5;
 }
+
 .selected {
     border-radius: 30px;
     border: 1px solid #4D8BBA;
@@ -354,7 +371,7 @@ input#division{
     width: 235px;
     font-size: 20px;
     margin-top: 40px;
-    border-bottom: #4D8BBA !important;
+    border-bottom: 1px solid #4D8BBA;
 }
 
 .pdf-svg{

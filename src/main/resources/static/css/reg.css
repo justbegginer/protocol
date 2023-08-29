@@ -310,3 +310,13 @@ button {
 #myTable {
     max-width: 1160px;
 }
+
+tr.editing-row {
+  border-radius: 10px;
+  border: 2px solid #4D8BBA;
+}
+
+.editing-row {
+  border-radius: 10px;
+  border: 2px solid #4D8BBA;
+}
