@@ -38,7 +38,7 @@ public class RegistrationController {
     @GetMapping("/registration")
     public String reg(Model model) {//TODO 3
         // TODO надо вывести спортсменов сугубо этого соревнования, а не всех
-        model.addAttribute("sportsmans", sportsmanService.findAll());
+        model.addAttribute("sportsmen", sportsmanService.findAll());
         return "competition/reg";
     }
     @PostMapping("/registration")

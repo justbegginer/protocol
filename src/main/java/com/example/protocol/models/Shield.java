@@ -29,4 +29,12 @@ public class Shield {
     @OneToMany(mappedBy = "shield")
     private List<Sportsman> sportsmen;
 
+    boolean addSportsman(Sportsman s){ //добавляем спортсмена на щит (на одном щите максимум 4 спортсмена)
+        if(sportsmen.size()>4){
+            sportsmen.add(s);
+            return true;
+        } else{
+            return false;
+        }
+    }
 }
