@@ -130,6 +130,10 @@ function generateTable(category) {
     const container = document.createElement('div');
     container.className = 'division-container';
 
+    const line = document.createElement('div');
+    line.className = 'line';
+    container.appendChild(line);
+
     const table = document.createElement('table');
     table.className = 'categories-table rounded';
 
@@ -141,7 +145,14 @@ function generateTable(category) {
 
     const participantsCell = document.createElement('td');
     participantsCell.id = 'participants';
-    participantsCell.textContent = category.sportsmen.length + ' участников:';
+    if (category.sportsmen.length === 1 || category.sportsmen.length % 10 === 1) {
+        participantsCell.textContent = category.sportsmen.length + ' участник';
+    }
+    else if ((category.sportsmen.length > 1 && category.sportsmen.length < 5) || (category.sportsmen.length % 10 > 1 && category.sportsmen.length % 10 < 5)) {
+        participantsCell.textContent = category.sportsmen.length + ' участника';
+    } else{
+        participantsCell.textContent = category.sportsmen.length + ' участников';
+    }
 
     const toggleButtonCell = document.createElement('td');
     toggleButtonCell.id = 'toggle';
@@ -236,12 +247,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 tbody.style.display = 'table-row-group';
                 headerRow.style.display = 'table-row';
                 this.textContent = 'Закрыть список участников -';
+                this.style.color = "#3B6F98";
                 headerRow.style.marginTop = '0';
                 table.style.marginBottom = '20px';
             } else {
                 tbody.style.display = 'none';
                 headerRow.style.display = 'none';
                 this.textContent = 'Раскрыть список участников +';
+                this.style.color = "#4D8BBA";
                 table.style.marginBottom = '0px';
             }
         });
