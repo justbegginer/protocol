@@ -21,15 +21,15 @@ function addRow(newData) {
 
     row.innerHTML = `    
     <td class="empty">${newData.icons}</td>
-    <td class="sportsman">${newData.sportsman}</td>
-    <td class="date">${newData.date}</td>
-    <td class="gender">${newData.gender}</td>
-    <td class="class">${newData.class}</td>
-    <td class="razryad">${newData.razryad}</td>
-    <td class="region">${newData.region}</td>
-    <td class="member">${newData.member}</td>
-    <td class="club">${newData.club}</td>
-    <td class="phone">${newData.phone}</td>`;
+    <td class="sportsman" th:text="${sportsman.name}"></td>
+    <td class="date" th:text="${sportsman.date}"></td>
+    <td class="gender" th:text="${sportsman.gender}"></td>
+    <td class="class" th:text="${sportsman.class}"> </td>
+    <td class="razryad" th:text="${sportsman.category}"></td>
+    <td class="region" th:text="${sportsman.region}"></td>
+    <td class="member" th:text="${sportsman.federationMembership}"></td>
+    <td class="club" th:text="${sportsman.club}"></td>
+    <td class="phone" th:text="${sportsman.phone}"></td>`;
 
     if (table.rows.length % 2 === 0) {
         row.classList.add('even');

@@ -5,10 +5,7 @@ import com.example.protocol.entity.Category;
 import com.example.protocol.entity.Gender;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.TreeMap;
 
@@ -18,6 +15,7 @@ import java.util.TreeMap;
 //@AllArgsConstructor
 @Getter
 @Setter
+@ToString
 public class Sportsman {
 
     public static TreeMap<String, Integer> exampleDivisions; //для хранения всевозможных названий дивизионов для дальнейшего их создания
@@ -37,12 +35,12 @@ public class Sportsman {
     //@Column(name = "date")
     private String date;
 
-    private Gender gender;
+    private String gender;
 
-    private BowClass bowClass;
+    private String bowClass;
 
     //@Column(name = "category")
-    private Category category;
+    private String category;
 
     //@Column(name = "region")
     private String region;
@@ -60,17 +58,17 @@ public class Sportsman {
     //@Column(name = "mark")
     private boolean isMark;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnoreProperties({"sportsmen"})
     @JoinColumn(name = "shield_id")
     private Shield shield;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnoreProperties({"sportsmen"})
     @JoinColumn(name = "division_id")
     private Division division;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnoreProperties({"sportsmen"})
     @JoinColumn(name = "competition_id")
     private Competition competition;
@@ -83,143 +81,9 @@ public class Sportsman {
         Sportsman.exampleDivisions = exampleDivisions;
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getFatherName() {
-        return fatherName;
-    }
-
-    public void setFatherName(String fatherName) {
-        this.fatherName = fatherName;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
-
-    public BowClass getBowClass() {
-        return bowClass;
-    }
-
-    public void setBowClass(BowClass bowClass) {
-        this.bowClass = bowClass;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public String getRegion() {
-        return region;
-    }
-
-    public void setRegion(String region) {
-        this.region = region;
-    }
-
-    public String getFederationMembership() {
-        return federationMembership;
-    }
-
-    public void setFederationMembership(String federationMembership) {
-        this.federationMembership = federationMembership;
-    }
-
-    public String getClub() {
-        return club;
-    }
-
-    public void setClub(String club) {
-        this.club = club;
-    }
-
-    public String getTelephoneNumber() {
-        return telephoneNumber;
-    }
-
-    public void setTelephoneNumber(String telephoneNumber) {
-        this.telephoneNumber = telephoneNumber;
-    }
-
-//    public int getCompetitionId() {
-//        return competitionId;
-//    }
-//
-//    public void setCompetitionId(int competitionId) {
-//        this.competitionId = competitionId;
-//    }
-
-    public boolean isMark() {
-        return isMark;
-    }
-
-    public void setMark(boolean mark) {
-        isMark = mark;
-    }
-
-    public Shield getShield() {
-        return shield;
-    }
-
-    public void setShield(Shield shield) {
-        this.shield = shield;
-    }
-
-    public Division getDivision() {
-        return division;
-    }
-
-    public void setDivision(Division division) {
-        this.division = division;
-    }
-
-    public Competition getCompetition() {
-        return competition;
-    }
-
-    public void setCompetition(Competition competition) {
-        this.competition = competition;
-    }
-
-    public Sportsman(int id, String name, String surname, String fatherName, String date, Gender gender, BowClass bowClass, Category category, String region, String federationMembership, String club, String telephoneNumber, boolean isMark, Shield shield, Division division, Competition competition) {
+    public Sportsman(int id, String name, String surname, String fatherName, String date, String gender, String bowClass, String category, String region, String federationMembership, String club, String telephoneNumber, boolean isMark, Shield shield, Division division, Competition competition) {
         this.id = id;
         this.name = name;
         this.surname = surname;

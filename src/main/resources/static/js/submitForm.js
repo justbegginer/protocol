@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const submitButton = document.getElementById('submit');
+  const submitButton = document.getElementById('submitButton');
 
   submitButton.addEventListener('click', function(event) {
     event.preventDefault();

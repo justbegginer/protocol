@@ -42,6 +42,6 @@ CompetitionController {
     @PostMapping // запрос на который надо перенаправиться после заполнения
     public String addToDb(@ModelAttribute("competition") Competition competition){
         competitionService.save(competition);
-        return "redirect:/sportsman/add_new";
+        return String.format("redirect:/pre-registration/%d", competition.getId());
     }
 }

@@ -13,7 +13,7 @@
     <section class="square">
         <div class="container">
             <h1 class="section-title">Выбор соревнования</h1>
-            <form th:action="@{/competition}" class="formComp" method="POST">
+            <form th:action="@{/competition/{id}(id=${competition.getId()})}" class="formComp" method="POST">
                 <p class="form__text">Название соревнования</p>
                 <input type="text" placeholder="Введите название соревнования" class="form__input" th:field="${competition.name}">
                 <p class="form__text">Место проведения соревнования</p>
@@ -26,7 +26,7 @@
                     <img src="../../static/pics/upload.svg" alt="Upload Icon" class="upload-icon">
                     <input id="upload-logo" type="file" style="display: none;">
                 </label>
-                <button class="createCompt" type="submit" id="submit">Создать соревнование</button>
+                <button class="createCompt" type="submit" id="submitButton">Создать соревнование</button>
             </form>
         </div>
     </section>
