@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface SportsmanRepo extends JpaRepository<Sportsman, Integer> {
 
-//    @Query("SELECT CONCAT_WS(' ', sportsman_surname, sportsman_name) AS sportsman_surname_name, sportsman_date, " +
-//            "sportsman_category, CONCAT_WS(', ', sportsman_region, sportsman_club) AS region_club FROM sportsman;")
-//    List<Sportsman> getSportsmen();
+//    @Query("SELECT (surname||' '|| name) AS surname_name, date, category, (region||', '|| club) AS region_club FROM sportsman;")
+//    List<Sportsman> getSportsmen(); // surname_name | date | category | region_club
+
 }

@@ -42,4 +42,8 @@ public class DivisionService implements CrudService<Division> {
     public List<Division> findAll() {
         return divisionRepo.findAll();
     }
+
+    public void formDivisions() {
+
+    }
 }

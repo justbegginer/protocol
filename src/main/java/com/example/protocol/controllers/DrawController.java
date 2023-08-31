@@ -20,14 +20,14 @@ public class DrawController {
     @GetMapping("/draw")
     // TODO 5
     public String draw(Model model) {
-        model.addAttribute("draw", drawService.findAll());
+        // model.addAttribute("draw", drawService.findAll());
         return "competition/draw";
     }
 
     @GetMapping("/draw_table")
     // TODO 6
     public String drawTable(Model model) {
-        model.addAttribute("draw", drawService.findAll());
+        // model.addAttribute("draw", drawService.findAll());
         return "competition/drawTable";
     }
 }

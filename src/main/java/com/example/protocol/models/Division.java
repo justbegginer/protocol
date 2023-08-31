@@ -27,4 +27,6 @@ public class Division {
     @JsonIgnoreProperties({"division"})
     @OneToMany(mappedBy = "division")
     private List<Sportsman> sportsmen;
+
+
 }

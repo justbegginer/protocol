@@ -1,6 +1,7 @@
 package com.example.protocol.dao.services;
 
 import com.example.protocol.dao.repo.SportsmanRepo;
+import com.example.protocol.entity.Gender;
 import com.example.protocol.models.Sportsman;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,20 @@ public class SportsmanService implements CrudService<Sportsman> {
 
     @Override
     public void delete(Sportsman value) {
-        sportsmanRepo.delete(value);
+        String temp1;
+        if (value.getGender().equals(Gender.MALE)){
+            temp1 = "Мужчины";
+        } else {
+            temp1 = "Женщины";
+        }
+        //проверяем, существует ли дивизион. ключ - название дивизиона, существует, пока существуют подходящие участники (значение)
+        String tempDivisionName = value.getBowClass() + " - " + temp1;
+
+        if(Sportsman.exampleDivisions.get(tempDivisionName)==1) {
+            Sportsman.exampleDivisions.remove(tempDivisionName);
+        } else{
+            Sportsman.exampleDivisions.put(tempDivisionName, Sportsman.exampleDivisions.get(tempDivisionName)-1);
+        }
     }
 
     @Override

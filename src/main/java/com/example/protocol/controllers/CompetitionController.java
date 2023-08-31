@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/competition")
-public class CompetitionController {
+public class
+CompetitionController {
 
     private final CompetitionService competitionService;
 
