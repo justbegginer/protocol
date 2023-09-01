@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sportsmanSpan.textContent = name;
     }
 
-    function openPopup(name) {
+    function openPopup(name, sportsmanId) {
         updatePopupText(name);
         popup.classList.add('open');
     }
@@ -46,8 +46,25 @@ document.addEventListener('DOMContentLoaded', () => {
             editButton.classList.remove('clicked');
         }
         if (target.id === 'btn-delete') {
-            const row = lastClickedButton.closest('tr');
-            deleteTableRow(row);
+            const sportsmanId = lastClickedButton.getAttribute('th:sportsman-id');
+            const competitionId = lastClickedButton.getAttribute('th:competition-id');
+            const url = `/registration/general/${competitionId}/${sportsmanId}`;
+
+            fetch(url, {
+                method: 'DELETE',
+            })
+            .then(response => {
+                if (response.ok) {
+                    const row = lastClickedButton.closest('tr');
+                    deleteTableRow(row);
+                    lastClickedButton.closest('tr').remove();
+                } else {
+                    console.error('Ошибка при удалении спортсмена');
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка отправки запроса на удаление:', error);
+            });
         }
     });
 
@@ -56,11 +73,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const openPopupButton = target.closest('.openPopup');
 
         if (openPopupButton) {
-            const sportsmanId = row.getAttribute('sportsmen-id');
-            const competitionId = row.getAttribute('competition-id');
             const name = openPopupButton.closest('tr').querySelector('.sportsman').textContent;
+            const sportsmanId = openPopupButton.getAttribute('th:sportsman-id');
             lastClickedButton = openPopupButton;
-            openPopup(name);
+            openPopup(name, sportsmanId);
         }
     });
 
@@ -79,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function finishEditing(row) {
+    function finishEditing(row, sportsmanId) {
         editable.selected = null;
         row.classList.remove('editing-row');
 
@@ -134,12 +150,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.edit').forEach(button => {
         button.addEventListener('click', function (event) {
-            let row = event.target.closest('tr');
+            const row = event.target.closest('tr');
+            const sportsmanId = row.getAttribute('data-sportsman-id');
+
             if (row) {
                 if (editable.selected === row) {
                     finishEditing(row);
                 } else {
-                    startEditing(row);
+                    startEditing(row, sportsmanId);
                 }
             }
         });
