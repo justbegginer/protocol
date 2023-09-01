@@ -19,23 +19,19 @@
   <br>
   <input class="google-file" type="url" name="google_url" placeholder="Ведите ссылку на таблицу">
 </form>
-<div class="container">
-  <div class="box">
-    <form action="#" method="get" enctype="multipart/form-data">
+<form>
+  <div class="container">
+    <div class="box">
       <label>ФИО</label>
       <br><input type="text" placeholder="Введите ФИО">
-    </form>
-    <form class="gender" action="#" method="get" enctype="multipart/form-data">
       <label class="gender-label">Пол</label>
-        <div class="radio-option">
-          <input id="male-gender" type="radio" name="gender">
-          <label for="male-gender" class="gender-option">Мужчина</label>
+      <div class="radio-group">
+        <input id="male-gender" type="radio" name="gender">
+        <label for="male-gender" class="gender-option">Мужчина</label>
 
-          <input id="female-gender" type="radio" name="gender">
-          <label for="female-gender" class="gender-option">Женщина</label>
+        <input id="female-gender" type="radio" name="gender">
+        <label for="female-gender" class="gender-option">Женщина</label>
       </div>
-    </form>
-    <form action="#" method="get" enctype="multipart/form-data">
       <label for="razryad">Спортивный разряд/звание</label>
       <br>
       <select id="razryad" name="razryad">
@@ -47,40 +43,28 @@
         <option value="ms">МС</option>
         <option value="msmk">МСМК</option>
       </select>
-    </form>
-    <form action="#" method="get" enctype="multipart/form-data">
       <label>Членство в спортивной федерации</label>
       <br><input type="text" placeholder="Введите членство">
-    </form>
-    <form action="#" method="get" enctype="multipart/form-data">
       <label>Номер телефона</label><br>
-      <input type="tel" placeholder="+7 (999) 999 99-99" pattern="\+7 \(\d{3}\) \d{3} \d{2}-\d{2}" required>
-    </form>
-  </div>
+      <input type="tel" placeholder="+7 (999) 999 99-99" required>
+    </div>
 
-  <div class="box">
-    <form action="#" method="get" enctype="multipart/form-data">
+    <div class="box">
       <label>Дата рождения</label>
       <br><input type="date" id="date" name="date" placeholder="ДД / ММ / ГГГГ">
-    </form>
-    <form action="#" method="get" enctype="multipart/form-data">
       <label for="class">Класс лука</label> <br>
       <select id="class" name="class">
         <option value="choice">Выберите класс лука</option>
         <option value="block">Блочный лук</option>
         <option value="classic">Классический лук</option>
       </select>
-    </form>
-    <form action="#" method="get" enctype="multipart/form-data">
       <label>Регион</label>
       <br><input type="text" id="place" name="place" placeholder="Ведите регион">
-    </form>
-    <form action="#" method="get" enctype="multipart/form-data">
       <label>Клубная принадлежность</label>
       <br><input type="text" id="club" name="club" placeholder="Введите клуб">
-    </form>
+    </div>
   </div>
-</div>
+</form>
 <button class="openPopup" type="submit" id="submit">Зарегистрировать</button>
 <div id="popup" class="popup">
   <div class="popup-content">
