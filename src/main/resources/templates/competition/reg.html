@@ -37,17 +37,14 @@
                         <img class="confirm" src="../../static/pics/checkbox-marked.svg"
                              alt="../../static/pics/checkbox-marked.svg">
                     </button>
-                    <button id="openPopup" class="openPopup" th:sportsman-id = "${sportsman.id}"
-                            th:competition-id ="${sportsman.competition.getId()}">
+                    <button id="openPopup" class="openPopup" th:sportsman-id="${sportsman.id}"
+                            th:competition-id="${sportsman.competition.getId()}">
                         <img class="delete" src="../../static/pics/close-box.svg"
                              alt="../../static/pics/close-box.svg">
                     </button>
-                    <form th:action="@{/registration/general/{competition_id}/{id}(competition_id=${sportsman.competition.getId()}, id=${sportsman.id})}"
-                          th:method="PATCH">
-                        <button id="edit" class="edit">
-                            <img src="../../static/pics/pencil-box.svg" alt="../../static/pics/pencil-box.svg">
-                        </button>
-                    </form>
+                    <button id="edit" class="edit">
+                        <img src="../../static/pics/pencil-box.svg" alt="../../static/pics/pencil-box.svg">
+                    </button>
                 </td>
                 <td class="sportsman" th:text="${sportsman.name}"></td>
                 <td class="date" th:text="${sportsman.date}"></td>
@@ -77,8 +74,7 @@
                 Вы уверены, что хотите удалить<br> участника <span class="sportsman"></span>?<br>
             </div>
             <button id="btn-cancel">отмена</button>
-            <form th:action="@{/registration/general/{competition_id}/{id}(competition_id=${sportsman.competition.getId()}, id=${sportsman.id})}"
-                  th:method="DELETE">
+            <form>
                 <button id="btn-delete">Удалить</button>
             </form>
         </div>

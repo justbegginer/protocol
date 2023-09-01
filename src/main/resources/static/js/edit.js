@@ -46,8 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
             editButton.classList.remove('clicked');
         }
         if (target.id === 'btn-delete') {
-            const sportsmanId = lastClickedButton.getAttribute('th:sportsman-id');
-            const competitionId = lastClickedButton.getAttribute('th:competition-id');
+            event.preventDefault();
+            const sportsmanId = lastClickedButton.getAttribute('sportsman-id');
+            const competitionId = lastClickedButton.getAttribute('competition-id');
             const url = `/registration/general/${competitionId}/${sportsmanId}`;
 
             fetch(url, {
