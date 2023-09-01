@@ -106,6 +106,10 @@ function generateTable(category) {
     const container = document.createElement('div');
     container.className = 'division-container';
 
+    const line = document.createElement('div');
+    line.className = 'line';
+    container.appendChild(line);
+
     const table = document.createElement('table');
     table.className = 'categories-table rounded';
 
@@ -117,21 +121,25 @@ function generateTable(category) {
 
     const participantsCell = document.createElement('td');
     participantsCell.id = 'participants';
-    participantsCell.textContent = category.sportsmen.length + ' участников:';     //???
-
-    const enoughCell = document.createElement('td');
-    const mergeButton = document.createElement('button');
-    mergeButton.className = 'merge-btn';
-    mergeButton.textContent = 'Объединить дивизион';
-    enoughCell.className = 'enough';
-
-    if (category.sportsmen.length >= 5){
-        enoughCell.textContent = 'Достаточно';
-        enoughCell.style.color = '#59AB66';
+    if (category.sportsmen.length === 1 || category.sportsmen.length % 10 === 1) {
+        participantsCell.textContent = category.sportsmen.length + ' участник';
+    }
+    else if ((category.sportsmen.length > 1 && category.sportsmen.length < 5) || (category.sportsmen.length % 10 > 1 && category.sportsmen.length % 10 < 5)) {
+        participantsCell.textContent = category.sportsmen.length + ' участника';
     } else{
-        enoughCell.textContent = 'Недостаточно';
-        enoughCell.style.color = '#C26060';
-        enoughCell.appendChild(mergeButton);
+        participantsCell.textContent = category.sportsmen.length + ' участников';
+    }
+
+    if (category.sportsmen.length < 5){
+        const mergeButton = document.createElement('button');
+        mergeButton.id = 'merge-btn';
+        mergeButton.className = 'merge-btn';
+        mergeButton.textContent = 'Объединить дивизион';
+        participantsCell.style.color = '#C26060';
+        participantsCell.appendChild(mergeButton);
+    }
+    else{
+        participantsCell.style.color = '#59AB66';
     }
 
     const toggleButtonCell = document.createElement('td');
@@ -212,12 +220,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 tbody.style.display = 'table-row-group';
                 headerRow.style.display = 'table-row';
                 this.textContent = 'Закрыть список участников -';
+                this.style.color = "#3B6F98";
                 headerRow.style.marginTop = '0';
                 table.style.marginBottom = '20px';
             } else {
                 tbody.style.display = 'none';
                 headerRow.style.display = 'none';
                 this.textContent = 'Раскрыть список участников +';
+                this.style.color = "#4D8BBA";
                 table.style.marginBottom = '0px';
             }
         });
@@ -241,10 +251,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
             popupTextCategory.textContent = categoryTitle;
 
-            if (participantsCount === 1) {
+            if (participantsCount === 1 || participantsCount % 10 === 1) {
                 popupTextParticipants.textContent = participantsCount + ' участник';
-            } else {
+            } else if ((participantsCount > 1 && participantsCount < 5) || (participantsCount % 10 > 1 && participantsCount % 10 < 5)) {
                 popupTextParticipants.textContent = participantsCount + ' участника';
+            } else {
+                popupTextParticipants.textContent = participantsCount + ' участников';
             }
 
             categoryButtonsContainer.innerHTML = '';
@@ -259,7 +271,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     categoryButton.type = 'button';
                     categoryForm.id = 'categoryForm';
                     categoryButton.classList.add('category-button');
-                    categoryButton.innerHTML = `<span class="category-title">${categoryTitle}</span><span class="participants-count">${participantsCount} участников</span>`;
+                    let participantsLabel = 'участников';
+                    if (participantsCount === 1 || participantsCount % 10 === 1) {
+                        participantsLabel = 'участник';
+                    } else if ((participantsCount > 1 && participantsCount < 5) || (participantsCount % 10 > 1 && participantsCount % 10 < 5)) {
+                        participantsLabel = 'участника';
+                    }
+                    categoryButton.innerHTML = `<span class="category-title">${categoryTitle}</span><span class="participants-count">${participantsCount} ${participantsLabel}</span>`;
                     categoryForm.appendChild(categoryButton);
                     categoryButtonsContainer.appendChild(categoryForm);
                     const participantsCountSpan = categoryButton.querySelector('.participants-count');
