@@ -16,6 +16,7 @@
   <br>изменить его данные</h3>
   <div class="table-container">
     <table id="myTable" class="myTable">
+      <thead>
       <tr>
         <th></th>
         <th>Спортсмен</th>
@@ -28,6 +29,31 @@
         <th>Клуб</th>
         <th>Телефон</th>
       </tr>
+      </thead>
+      <tbody>
+      <tr th:each="sportsman : ${sportsmen}">
+        <td class="empty">
+          <button class="confirm">
+            <img class="confirm" src="/src/main/resources/static/pics/checkbox-marked.svg" alt="/src/main/resources/static/pics/checkbox-marked.svg">
+          </button>
+          <button id="openPopup" class="openPopup">
+            <img class="delete" src="/src/main/resources/static/pics/close-box.svg" alt="/src/main/resources/static/pics/close-box.svg">
+          </button>
+          <button id="edit" class="edit">
+            <img src="/src/main/resources/static/pics/pencil-box.svg" alt="/src/main/resources/static/pics/pencil-box.svg">
+          </button>
+        </td>
+        <td class="sportsman" th:text="${sportsman.name}"></td>
+        <td class="date" th:text="${sportsman.date}"></td>
+        <td class="gender" th:text="${sportsman.gender}"></td>
+        <td class="class" th:text="${sportsman.class}"></td>
+        <td class="razryad" th:text="${sportsman.category}"></td>
+        <td class="region" th:text="${sportsman.region}"></td>
+        <td class="member" th:text="${sportsman.federationMembership}"></td>
+        <td class="club" th:text="${sportsman.club}"></td>
+        <td class="phone" th:text="${sportsman.phone}"></td>
+      </tr>
+      </tbody>
     </table>
   </div>
   <button id="registerButton">Зарегистрировать</button>
