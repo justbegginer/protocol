@@ -64,8 +64,7 @@
             <br><input type="text" id="club" name="club" placeholder="Введите клуб" th:field="${sportsman.club}">
         </div>
     </div>
-    <button class="openPopup" type="submit" id="submitButton">Зарегистрировать</button>
-</form>
+    <button class="openPopup">Зарегистрировать</button>
 <div id="popup" class="popup">
     <div class="popup-content">
         <button id="closePopup">
@@ -75,11 +74,12 @@
         <p class="done">Участник <br>
             зарегистрирован</p>
         <div class="button-container">
-            <button id="gotoReg">Перейти к регистрации</button>
-            <button id="addAnotherMember">Добавить нового участника +</button>
+            <button id="gotoReg" type="submit" >Перейти к регистрации</button>
+            <button id="addAnotherMember" type="submit">Добавить нового участника +</button>
         </div>
     </div>
 </div>
+</form>
 <script src="../../static/js/openPopup.js"></script>
 <script src="../../static/js/addMenu.js"></script>
 <script src="../../static/js/submitForm.js"></script>

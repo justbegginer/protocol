@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const submitButton = document.getElementById('submitButton');
+  const submitButton = document.querySelector('button[type="submit"]');
 
   submitButton.addEventListener('click', function(event) {
     event.preventDefault();
