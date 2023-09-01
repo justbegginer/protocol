@@ -1,84 +1,84 @@
 <!DOCTYPE html>
 <html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <link href="../../static/css/popup.css" rel="stylesheet">
-  <link href="../../static/css/pre-reg.css" rel="stylesheet">
-  <link href="../../static/css/styles.css" rel="stylesheet">
-  <title>Предварительная регистрация</title>
+    <meta charset="UTF-8">
+    <link href="../../static/css/popup.css" rel="stylesheet">
+    <link href="../../static/css/pre-reg.css" rel="stylesheet">
+    <link href="../../static/css/styles.css" rel="stylesheet">
+    <title>Предварительная регистрация</title>
 </head>
 <body>
 <header class="menu-container">
-  <div id="menu"></div>
+    <div id="menu"></div>
 </header>
 <h1>Предварительная регистрация</h1>
 <h3>Для регистрации заполните все поля или
-  <br>загрузите данные из Google-таблицы</h3>
+    <br>загрузите данные из Google-таблицы</h3>
 <form action="/submit" method="post">
-  <label>Загрузите данные из Google-таблицы</label>
-  <br>
-  <input class="google-file" type="url" name="google_url" placeholder="Ведите ссылку на таблицу">
+    <label>Загрузите данные из Google-таблицы</label>
+    <br>
+    <input class="google-file" type="url" name="google_url" placeholder="Ведите ссылку на таблицу">
 </form>
-<form>
-  <div class="container">
-    <div class="box">
-      <label>ФИО</label>
-      <br><input type="text" placeholder="Введите ФИО">
-      <label class="gender-label">Пол</label>
-      <div class="radio-group">
-        <input id="male-gender" type="radio" name="gender">
-        <label for="male-gender" class="gender-option">Мужчина</label>
+<form th:action="@{/registration/preliminary/add_new/{id}(id=${competition.getId()})}" method="post">
+    <div class="container">
+        <div class="box">
+            <label>ФИО</label>
+            <br><input type="text" placeholder="Введите ФИО" th:field="${sportsman.name}">
+            <label class="gender-label">Пол</label>
+            <div class="radio-group">
+                <input id="male-gender" type="radio" name="gender">
+                <label for="male-gender" class="gender-option">Мужчина</label>
 
-        <input id="female-gender" type="radio" name="gender">
-        <label for="female-gender" class="gender-option">Женщина</label>
-      </div>
-      <label for="razryad">Спортивный разряд/звание</label>
-      <br>
-      <select id="razryad" name="razryad">
-        <option value="choice">Выберите разряд</option>
-        <option value="1">1 разряд</option>
-        <option value="2">2 разряд</option>
-        <option value="3">3 разряд</option>
-        <option value="kms">КМС</option>
-        <option value="ms">МС</option>
-        <option value="msmk">МСМК</option>
-      </select>
-      <label>Членство в спортивной федерации</label>
-      <br><input type="text" placeholder="Введите членство">
-      <label>Номер телефона</label><br>
-      <input type="tel" placeholder="+7 (999) 999 99-99" required>
-    </div>
+                <input id="female-gender" type="radio" name="gender">
+                <label for="female-gender" class="gender-option">Женщина</label>
+            </div>
+            <label for="razryad">Спортивный разряд/звание</label>
+            <br>
+            <select id="razryad" name="razryad" th:field="${sportsman.category}">
+                <option value="choice">Выберите разряд</option>
+                <option value="1">1 разряд</option>
+                <option value="2">2 разряд</option>
+                <option value="3">3 разряд</option>
+                <option value="kms">КМС</option>
+                <option value="ms">МС</option>
+                <option value="msmk">МСМК</option>
+            </select>
+            <label>Членство в спортивной федерации</label>
+            <br><input type="text" placeholder="Введите членство" th:field="${sportsman.federationMembership}">
+            <label>Номер телефона</label><br>
+            <input type="tel" placeholder="+7 (999) 999 99-99" required>
+        </div>
 
-    <div class="box">
-      <label>Дата рождения</label>
-      <br><input type="date" id="date" name="date" placeholder="ДД / ММ / ГГГГ">
-      <label for="class">Класс лука</label> <br>
-      <select id="class" name="class">
-        <option value="choice">Выберите класс лука</option>
-        <option value="block">Блочный лук</option>
-        <option value="classic">Классический лук</option>
-      </select>
-      <label>Регион</label>
-      <br><input type="text" id="place" name="place" placeholder="Ведите регион">
-      <label>Клубная принадлежность</label>
-      <br><input type="text" id="club" name="club" placeholder="Введите клуб">
+        <div class="box">
+            <label>Дата рождения</label>
+            <br><input type="date" id="date" name="date" placeholder="ДД / ММ / ГГГГ" th:field="${sportsman.date}">
+            <label for="class">Класс лука</label> <br>
+            <select id="class" name="class" th:field="${sportsman.bowClass}">
+                <option value="choice">Выберите класс лука</option>
+                <option value="block">Блочный лук</option>
+                <option value="classic">Классический лук</option>
+            </select>
+            <label>Регион</label>
+            <br><input type="text" id="place" name="place" placeholder="Ведите регион" th:field="${sportsman.region}">
+            <label>Клубная принадлежность</label>
+            <br><input type="text" id="club" name="club" placeholder="Введите клуб" th:field="${sportsman.club}">
+        </div>
     </div>
-  </div>
+    <button class="openPopup" type="submit" id="submitButton">Зарегистрировать</button>
 </form>
-<button class="openPopup" type="submit" id="submit">Зарегистрировать</button>
 <div id="popup" class="popup">
-  <div class="popup-content">
-    <button id="closePopup">
-      <img src="../../static/pics/close.svg" alt="Close">
-    </button>
-    <img class = "ok" src="../../static/pics/checkMark.svg">
-    <p class="done">Участник <br>
-      зарегистрирован</p>
-    <div class="button-container">
-      <button id="gotoReg">Перейти к регистрации</button>
-      <button id="addAnotherMember">Добавить нового участника +</button>
+    <div class="popup-content">
+        <button id="closePopup">
+            <img src="../../static/pics/close.svg" alt="Close">
+        </button>
+        <img class="ok" src="../../static/pics/checkMark.svg">
+        <p class="done">Участник <br>
+            зарегистрирован</p>
+        <div class="button-container">
+            <button id="gotoReg">Перейти к регистрации</button>
+            <button id="addAnotherMember">Добавить нового участника +</button>
+        </div>
     </div>
-  </div>
 </div>
 <script src="../../static/js/openPopup.js"></script>
 <script src="../../static/js/addMenu.js"></script>

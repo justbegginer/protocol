@@ -2,6 +2,7 @@ package com.example.protocol.dao.services;
 
 import com.example.protocol.dao.repo.SportsmanRepo;
 import com.example.protocol.entity.Gender;
+import com.example.protocol.models.Competition;
 import com.example.protocol.models.Sportsman;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,5 +56,9 @@ public class SportsmanService implements CrudService<Sportsman> {
     @Override
     public List<Sportsman> findAll() {
         return sportsmanRepo.findAll();
+    }
+
+    public List<Sportsman> findAllByCompetition(Competition competition){
+        return sportsmanRepo.findAllByCompetition(competition);
     }
 }

@@ -19,19 +19,6 @@ CompetitionController {
         this.competitionService = competitionService;
     }
 
-    @GetMapping
-    public String getAllCompetitions(Model model) { // информация о всех соревнованиях
-        model.addAttribute("competitions", competitionService.findAll());
-        return "competition/all";
-    }
-
-    @GetMapping("/{id}") // информация о конкретном соревновании
-    public String getCompetition(Model model,
-                                 @PathVariable("id") int id){
-        model.addAttribute("competition", competitionService.findById(id));
-        return "competition/get";
-    }
-
     @GetMapping("/add_new") // страница с добавлением нового соревнования соревнования
     //TODO 1
     public String pageToAddNew(Model model){
@@ -42,6 +29,6 @@ CompetitionController {
     @PostMapping // запрос на который надо перенаправиться после заполнения
     public String addToDb(@ModelAttribute("competition") Competition competition){
         competitionService.save(competition);
-        return String.format("redirect:/pre-registration/%d", competition.getId());
+        return String.format("redirect:/registration/preliminary/%d", competition.getId());
     }
 }

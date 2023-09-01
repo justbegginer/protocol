@@ -18,7 +18,7 @@ function setActiveMenu(currentPagePath) {
   }
 }
 
-fetch('menu.html')
+fetch('../../templates/competition/menu.html')
   .then(response => response.text())
   .then(data => {
     document.getElementById('menu').innerHTML = data;
