@@ -27,20 +27,22 @@ public class SportsmanService implements CrudService<Sportsman> {
 
     @Override
     public void delete(Sportsman value) {
-        String temp1;
-        if (value.getGender().equals(Gender.MALE)){
-            temp1 = "Мужчины";
-        } else {
-            temp1 = "Женщины";
-        }
-        //проверяем, существует ли дивизион. ключ - название дивизиона, существует, пока существуют подходящие участники (значение)
-        String tempDivisionName = value.getBowClass() + " - " + temp1;
-
-        if(Sportsman.exampleDivisions.get(tempDivisionName)==1) {
-            Sportsman.exampleDivisions.remove(tempDivisionName);
-        } else{
-            Sportsman.exampleDivisions.put(tempDivisionName, Sportsman.exampleDivisions.get(tempDivisionName)-1);
-        }
+//        String temp1;
+//        if (value.getGender().equals(Gender.MALE)){
+//            temp1 = "Мужчины";
+//        } else {
+//            temp1 = "Женщины";
+//        }
+//        //проверяем, существует ли дивизион. ключ - название дивизиона, существует, пока существуют подходящие участники (значение)
+//        String tempDivisionName = value.getBowClass() + " - " + temp1;
+//
+//        if(Sportsman.exampleDivisions.get(tempDivisionName)==1) {
+//            Sportsman.exampleDivisions.remove(tempDivisionName);
+//        } else{
+//            Sportsman.exampleDivisions.put(tempDivisionName, Sportsman.exampleDivisions.get(tempDivisionName)-1);
+//        }
+        value.setCompetition(null);
+        sportsmanRepo.delete(value);
     }
 
     @Override

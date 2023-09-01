@@ -18,7 +18,7 @@ import java.util.TreeMap;
 @ToString
 public class Sportsman {
 
-    public static TreeMap<String, Integer> exampleDivisions; //для хранения всевозможных названий дивизионов для дальнейшего их создания
+    public static TreeMap<String, Integer> exampleDivisions = new TreeMap<>(); //для хранения всевозможных названий дивизионов для дальнейшего их создания
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -17,8 +17,10 @@ function setActiveMenu(currentPagePath) {
     }
   }
 }
+const baseUrl = 'http://localhost:8080';
+const menuUrl = baseUrl + '../../templates/competition/menu.html';
 
-fetch('../../templates/competition/menu.html')
+fetch(menuUrl)
   .then(response => response.text())
   .then(data => {
     document.getElementById('menu').innerHTML = data;

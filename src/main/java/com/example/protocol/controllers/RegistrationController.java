@@ -16,8 +16,8 @@ import java.util.List;
 @RequestMapping("/registration")
 public class RegistrationController {
 
-    public static class TableToSportsmanMapper{
-        public static List<Sportsman> map(){
+    public static class TableToSportsmanMapper {
+        public static List<Sportsman> map() {
             List<Sportsman> list = new ArrayList<Sportsman>();
             return list;
         }
@@ -34,7 +34,7 @@ public class RegistrationController {
         this.competitionService = competitionService;
     }
 
-    @GetMapping ("/preliminary/{id}")// страница с добавлением нового спортсмена
+    @GetMapping("/preliminary/{id}")// страница с добавлением нового спортсмена
     //TODO 2
     public String pageToAddNew(Model model, @PathVariable("id") int id) {
         model.addAttribute("sportsman", new Sportsman());
@@ -42,7 +42,7 @@ public class RegistrationController {
         return "competition/pre-reg";
     }
 
-    @PostMapping ("/preliminary/add_new/{id}")// запрос на который надо перенаправиться после заполнения
+    @PostMapping("/preliminary/add_new/{id}")// запрос на который надо перенаправиться после заполнения
     public String addToDb(Model model,
                           @ModelAttribute("sportsman") Sportsman sportsman,
                           @PathVariable("id") int id) {
@@ -52,7 +52,7 @@ public class RegistrationController {
     }
 
     @PostMapping("/add-from-link")
-    public String addFromLink(@ModelAttribute("url") String url){
+    public String addFromLink(@ModelAttribute("url") String url) {
         return null;
     }
 
@@ -69,14 +69,15 @@ public class RegistrationController {
     }
 
     @DeleteMapping("/general/{competition_id}/{id}")
-    public String deleteSportsman(@PathVariable("id") int id, @PathVariable("competition_id") int competition_id) {
+    public String deleteSportsman(@PathVariable("competition_id") int competition_id, @PathVariable("id") int id) {
         sportsmanService.delete(sportsmanService.findById(id).get());
-        return String.format("redirect:/general/%s", competition_id);
+        return String.format("redirect:/registration/general/%s", competition_id);
     }
 
     @PatchMapping("/general/{competition_id}/{id}")
-    public String updateSportsman(@PathVariable("id") int id, @PathVariable("competition_id") int competition_id) {
+    public String updateSportsman(@PathVariable("competition_id") int competition_id, @PathVariable("id") int id) {
         sportsmanService.save(sportsmanService.findById(id).get());
-        return String.format("redirect:/general/%s", competition_id);
+        return String.format("redirect:/registration/general/%s", competition_id);
     }
+
 }

@@ -1,98 +1,72 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const table = document.getElementById("myTable");
-  const buttons = document.querySelectorAll('button');
-  const openPopupButtons = document.querySelectorAll('.openPopup');
-  const popup = document.getElementById('popup');
-  const closePopupButton = document.getElementById('closePopup');
-  const cancelButton = document.getElementById('btn-cancel');
-  let lastClickedButton = null;
+    const table = document.getElementById("myTable");
+    const buttons = document.querySelectorAll('button');
+    const openPopupButtons = document.querySelectorAll('.openPopup');
+    const popup = document.getElementById('popup');
+    const closePopupButton = document.getElementById('closePopup');
+    const cancelButton = document.getElementById('btn-cancel');
+    let lastClickedButton = null;
 
-  function closePopup() {
-    openPopupButtons.forEach(openPopupButton => {
-      openPopupButton.classList.remove('clicked');
-      if (openPopupButton === lastClickedButton) {
-        const img = openPopupButton.querySelector('img');
-        img.src = openPopupButton.getAttribute('data-original-src');
-      }
-    });
-    popup.classList.remove('open');
-  }
-
-  closePopupButton.addEventListener('click', closePopup);
-  cancelButton.addEventListener('click', closePopup);
-
-  function deleteTableRow(row) {
-    if (row) {
-      row.remove();
-      popup.classList.remove('open');
-    }
-  }
-
-  function updatePopupText(name) {
-    const sportsmanSpan = document.querySelector('#popup .sportsman');
-    sportsmanSpan.textContent = name;
-  }
-
-  function openPopup(name) {
-    updatePopupText(name);
-    popup.classList.add('open');
-  }
-
-  popup.addEventListener('click', (event) => {
-    const target = event.target;
-    if (editable.selected) {
-      finishEditing(editable.selected);
-      const editButton = row.querySelector('.edit');
-      editButton.classList.remove('clicked');
-    }
-    if (target.id === 'btn-delete') {
-      const row = lastClickedButton.closest('tr');
-      deleteTableRow(row);
-    }
-  });
-
-  table.addEventListener('click', (event) => {
-    const target = event.target;
-    const openPopupButton = target.closest('.openPopup');
-
-    if (openPopupButton) {
-      const name = openPopupButton.closest('tr').querySelector('.sportsman').textContent;
-      lastClickedButton = openPopupButton;
-      openPopup(name);
-    }
-  });
-
-  function startEditing(row) {
-    if (editable.selected) {
-      finishEditing(editable.selected);
+    function closePopup() {
+        openPopupButtons.forEach(openPopupButton => {
+            openPopupButton.classList.remove('clicked');
+            if (openPopupButton === lastClickedButton) {
+                const img = openPopupButton.querySelector('img');
+                img.src = openPopupButton.getAttribute('data-original-src');
+            }
+        });
+        popup.classList.remove('open');
     }
 
-    editable.selected = row;
-    row.classList.add('editing-row');
+    closePopupButton.addEventListener('click', closePopup);
+    cancelButton.addEventListener('click', closePopup);
 
-    const cellsToEdit = row.querySelectorAll('td:not(:first-child)');
-    cellsToEdit.forEach(cell => {
-      cell.contentEditable = true;
-      cell.classList.add('edit');
-    });
-  }
+    function deleteTableRow(row) {
+        if (row) {
+            row.remove();
+            popup.classList.remove('open');
+        }
+    }
 
-  function finishEditing(row) {
-    editable.selected = null;
-    row.classList.remove('editing-row');
+    function updatePopupText(name) {
+        const sportsmanSpan = document.querySelector('#popup .sportsman');
+        sportsmanSpan.textContent = name;
+    }
 
-    const cellsToEdit = row.querySelectorAll('td:not(:first-child)');
-    cellsToEdit.forEach(cell => {
-      cell.contentEditable = false;
-      cell.classList.remove('edit');
-    });
-  }
-    const editable = {
-      selected: null,
+    function openPopup(name) {
+        updatePopupText(name);
+        popup.classList.add('open');
+    }
 
-      startEditing: (row) => {
+    popup.addEventListener('click', (event) => {
+        const target = event.target;
         if (editable.selected) {
-          editable.finishEditing(editable.selected);
+            finishEditing(editable.selected);
+            const editButton = row.querySelector('.edit');
+            editButton.classList.remove('clicked');
+        }
+        if (target.id === 'btn-delete') {
+            const row = lastClickedButton.closest('tr');
+            deleteTableRow(row);
+        }
+    });
+
+    table.addEventListener('click', (event) => {
+        const target = event.target;
+        const openPopupButton = target.closest('.openPopup');
+
+        if (openPopupButton) {
+            const sportsmanId = row.getAttribute('sportsmen-id');
+            const competitionId = row.getAttribute('competition-id');
+            const name = openPopupButton.closest('tr').querySelector('.sportsman').textContent;
+            lastClickedButton = openPopupButton;
+            openPopup(name);
+        }
+    });
+
+    function startEditing(row) {
+        if (editable.selected) {
+            finishEditing(editable.selected);
         }
 
         editable.selected = row;
@@ -100,46 +74,75 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const cellsToEdit = row.querySelectorAll('td:not(:first-child)');
         cellsToEdit.forEach(cell => {
-          cell.contentEditable = true;
-          cell.classList.add('edit');
+            cell.contentEditable = true;
+            cell.classList.add('edit');
         });
-      },
+    }
 
-      finishEditing: (row) => {
+    function finishEditing(row) {
         editable.selected = null;
         row.classList.remove('editing-row');
 
         const cellsToEdit = row.querySelectorAll('td:not(:first-child)');
         cellsToEdit.forEach(cell => {
-          cell.contentEditable = false;
-          cell.classList.remove('edit');
+            cell.contentEditable = false;
+            cell.classList.remove('edit');
         });
+    }
 
-        const editButton = row.querySelector('.edit');
-        editButton.classList.remove('clicked');
-      },
+    const editable = {
+        selected: null,
 
-      close: (event) => {
-        if (editable.selected) {
-          const clickedCell = event.target.closest('td');
-          if (!editable.selected.contains(clickedCell)) {
-            editable.finishEditing(editable.selected);
-          }
+        startEditing: (row) => {
+            if (editable.selected) {
+                editable.finishEditing(editable.selected);
+            }
+
+            editable.selected = row;
+            row.classList.add('editing-row');
+
+            const cellsToEdit = row.querySelectorAll('td:not(:first-child)');
+            cellsToEdit.forEach(cell => {
+                cell.contentEditable = true;
+                cell.classList.add('edit');
+            });
+        },
+
+        finishEditing: (row) => {
+            editable.selected = null;
+            row.classList.remove('editing-row');
+
+            const cellsToEdit = row.querySelectorAll('td:not(:first-child)');
+            cellsToEdit.forEach(cell => {
+                cell.contentEditable = false;
+                cell.classList.remove('edit');
+            });
+
+            const editButton = row.querySelector('.edit');
+            editButton.classList.remove('clicked');
+        },
+
+        close: (event) => {
+            if (editable.selected) {
+                const clickedCell = event.target.closest('td');
+                if (!editable.selected.contains(clickedCell)) {
+                    editable.finishEditing(editable.selected);
+                }
+            }
         }
-      }
     };
 
     document.querySelectorAll('.edit').forEach(button => {
-      button.addEventListener('click', function (event) {
-        let row = event.target.closest('tr');
-        if (row) {
-          if (editable.selected === row) {
-            finishEditing(row);
-          } else {
-            startEditing(row);
-          }
-        }
-      });
+        button.addEventListener('click', function (event) {
+            let row = event.target.closest('tr');
+            if (row) {
+                if (editable.selected === row) {
+                    finishEditing(row);
+                } else {
+                    startEditing(row);
+                }
+            }
+        });
     });
 
     buttons.forEach(button => {
@@ -165,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.classList.remove('clicked');
                 img.src = originalSrc;
 
-                if (button.classList.contains("edit"))  {
+                if (button.classList.contains("edit")) {
                     img.src = originalSrc.replace(" (1).svg", ".svg");
                     editable.selected.querySelectorAll("td").forEach((cell, index) => {
                         if (index !== 0) {
@@ -190,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 button.classList.add('clicked');
 
-                if (button.classList.contains('edit')){
+                if (button.classList.contains('edit')) {
                     img.src = originalSrc.replace(".svg", " (1).svg");
                 }
 
