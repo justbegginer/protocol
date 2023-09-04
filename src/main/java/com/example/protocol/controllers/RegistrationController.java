@@ -2,7 +2,6 @@ package com.example.protocol.controllers;
 
 import com.example.protocol.dao.services.CompetitionService;
 import com.example.protocol.dao.services.SportsmanService;
-import com.example.protocol.models.Competition;
 import com.example.protocol.models.Sportsman;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,13 +41,18 @@ public class RegistrationController {
         return "competition/pre-reg";
     }
 
-    @PostMapping("/preliminary/add_new/{id}")// запрос на который надо перенаправиться после заполнения
-    public String addToDb(Model model,
-                          @ModelAttribute("sportsman") Sportsman sportsman,
-                          @PathVariable("id") int id) {
+    @PostMapping("/preliminary/add_new/{id}/{path}")// запрос на который надо перенаправиться после заполнения
+    public String addToDb(@ModelAttribute("sportsman") Sportsman sportsman,
+                          @PathVariable("id") int id,
+                          @PathVariable("path") String path) {
+        System.out.println(path);
         sportsman.setCompetition(competitionService.findById(id).get());
         sportsmanService.save(sportsman);
-        return String.format("redirect:/registration/preliminary/%d", id);
+        if (path.equals("general")) {
+            return String.format("redirect:/registration/general/%d", id);
+        } else {
+            return String.format("redirect:/registration/preliminary/%d", id);
+        }
     }
 
     @PostMapping("/add-from-link")

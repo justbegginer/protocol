@@ -11,3 +11,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+// не работает перенаправление не заходит в листнер
+document.getElementById('gotoReg').addEventListener('click', function() {
+  var url = '/registration/preliminary/add_new/' + competitionId + '/general';
+  console.log(url);
+  window.location.href = url;
+});
+document.getElementById('addAnotherMember').addEventListener('click', function() {
+  var url = '/registration/preliminary/add_new/' + competitionId + '/preliminary';
+  console.log(url);
+  window.location.href = url;
+});
