@@ -6,24 +6,24 @@
     <link href="../../static/css/styles.css" rel="stylesheet">
     <link rel="stylesheet" href="../../static/css/reg.css">
 </head>
-<!--<header class="menu-container">-->
-<!--    <div class="menu">-->
-<!--        <a class="menu-item" th:href="@{/registration/preliminary/{id}(id=${competition.id})}"-->
-<!--           data-page="pre-registration">Предварительная регистрация</a>-->
-<!--        <a class="menu-item menu-item&#45;&#45;active" th:href="@{/registration/general/{id}(id=${competition.id})}"-->
-<!--           data-page="registration">Регистрация</a>-->
-<!--        <a class="menu-item" href="../templates/competition/draw.html" data-page="draw">Жеребьёвка</a>-->
-<!--        <a class="menu-item" href="../templates/competition/intermediateResult.html" data-page="intermediate-results">Промежуточные-->
-<!--            результаты</a>-->
-<!--        <a class="menu-item" href="../templates/competition/finalRes.html" data-page="final-results">Итоговые-->
-<!--            результаты</a>-->
-<!--        <a class="menu-item" href="../templates/competition/finalGrids.html" data-page="final-grids">Формирование-->
-<!--            финальных сеток</a>-->
-<!--        <a class="menu-item" href="../templates/competition/finalSparringResults.html"-->
-<!--           data-page="final-sparring-results">Финальные результаты спарринга</a>-->
-<!--    </div>-->
-<!--</header>-->
 <body>
+<!--    <header class="menu-container">-->
+<!--        <div class="menu">-->
+<!--            <a class="menu-item" th:href="@{/registration/preliminary/{id}(id=${competition.id})}"-->
+<!--               data-page="pre-registration">Предварительная регистрация</a>-->
+<!--            <a class="menu-item menu-item&#45;&#45;active" th:href="@{/registration/general/{id}(id=${competition.id})}"-->
+<!--               data-page="registration">Регистрация</a>-->
+<!--            <a class="menu-item" href="../templates/competition/draw.html" data-page="draw">Жеребьёвка</a>-->
+<!--            <a class="menu-item" href="../templates/competition/intermediateResult.html" data-page="intermediate-results">Промежуточные-->
+<!--                результаты</a>-->
+<!--            <a class="menu-item" href="../templates/competition/finalRes.html" data-page="final-results">Итоговые-->
+<!--                результаты</a>-->
+<!--            <a class="menu-item" href="../templates/competition/finalGrids.html" data-page="final-grids">Формирование-->
+<!--                финальных сеток</a>-->
+<!--            <a class="menu-item" href="../templates/competition/finalSparringResults.html"-->
+<!--               data-page="final-sparring-results">Финальные результаты спарринга</a>-->
+<!--        </div>-->
+<!--    </header>-->
     <main>
         <h1>Регистрация</h1>
         <h3>Вы можете подтвердить, удалить участника или
@@ -51,12 +51,10 @@
                             <img class="confirm" src="../../static/pics/checkbox-marked.svg"
                                  alt="../../static/pics/checkbox-marked.svg">
                         </button>
-                        <button id="openPopup" class="openPopup">
+                        <button id="openPopup" class="openPopup" th:data-sportsman-id="${sportsman.id}"
+                                th:competition-id="${sportsman.competition.getId()}">
                             <img class="delete" src="../../static/pics/close-box.svg"
                                  alt="../../static/pics/close-box.svg">
-<!--                            <script th:inline="javascript">-->
-<!--                                sportsmanId = [[${sportsman.id}]]-->
-<!--                            </script>-->
                         </button>
                         <button id="edit" class="edit">
                             <img src="../../static/pics/pencil-box.svg" alt="../../static/pics/pencil-box.svg">
@@ -94,7 +92,6 @@
             </div>
         </div>
     </div>
-<script src="../../static/js/submitForm.js"></script>
 <script src="../../static/js/addNew.js"></script>
 <script src="../../static/js/edit.js"></script>
 </body>
