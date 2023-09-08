@@ -48,25 +48,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (target.id === 'btn-delete') {
             event.preventDefault();
-            // const sportsmanId = lastClickedButton.getAttribute('sportsman-id');
-            // const competitionId = lastClickedButton.getAttribute('competition-id');
-            // const url = `/registration/general/${competitionId}/${sportsmanId}`;
+            const competitionId = 15;
+                        const url = `/registration/general/${competitionId}/${sportsmanId}`;
 
-            // fetch(url, {
-            //     method: 'DELETE',
-            // })
-            //     .then(response => {
-            //         if (response.ok) {
+
+
+            fetch(url, {
+                method: 'DELETE',
+            })
+                .then(response => {
+                    if (response.ok) {
                         const row = lastClickedButton.closest('tr');
                         deleteTableRow(row);
                         lastClickedButton.closest('tr').remove();
-            //         } else {
-            //             console.error('Ошибка при удалении спортсмена');
-            //         }
-            //     })
-            //     .catch(error => {
-            //         console.error('Ошибка отправки запроса на удаление:', error);
-            //     });
+                    } else {
+                        console.error('Ошибка при удалении спортсмена');
+                    }
+                })
+                .catch(error => {
+                    console.error('Ошибка отправки запроса на удаление:', error);
+                });
         }
     });
 
@@ -74,10 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
     table.addEventListener('click', (event) => {
         const target = event.target;
         const openPopupButton = target.closest('.openPopup');
+        // let sportsmanId = openPopupButton.getAttribute('th:value');
 
         if (openPopupButton) {
             const name = openPopupButton.closest('tr').querySelector('.sportsman').textContent;
-            const sportsmanId = openPopupButton.getAttribute('th:sportsman-id');
+            console.log(sportsmanId);
             lastClickedButton = openPopupButton;
             openPopup(name, sportsmanId);
         }
@@ -154,8 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.edit').forEach(button => {
         button.addEventListener('click', function (event) {
             const row = event.target.closest('tr');
-            const sportsmanId = row.getAttribute('data-sportsman-id');
-
             if (row) {
                 if (editable.selected === row) {
                     finishEditing(row);

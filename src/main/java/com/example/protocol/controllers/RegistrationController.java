@@ -73,9 +73,10 @@ public class RegistrationController {
     }
 
     @DeleteMapping("/general/{competition_id}/{id}")
-    public String deleteSportsman(@PathVariable("competition_id") int competition_id, @PathVariable("id") int id) {
+    public void deleteSportsman(@PathVariable("competition_id") int competition_id, @PathVariable("id") int id) {
         sportsmanService.delete(sportsmanService.findById(id).get());
-        return String.format("redirect:/registration/general/%s", competition_id);
+        System.out.println("delete");
+        //return String.format("redirect:/registration/general/%s", competition_id);
     }
 
     @PatchMapping("/general/{competition_id}/{id}")

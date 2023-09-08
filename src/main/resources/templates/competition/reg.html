@@ -51,10 +51,12 @@
                             <img class="confirm" src="../../static/pics/checkbox-marked.svg"
                                  alt="../../static/pics/checkbox-marked.svg">
                         </button>
-                        <button id="openPopup" class="openPopup" th:sportsman-id="${sportsman.id}"
-                                th:competition-id="${sportsman.competition.getId()}">
+                        <button id="openPopup" class="openPopup">
                             <img class="delete" src="../../static/pics/close-box.svg"
                                  alt="../../static/pics/close-box.svg">
+<!--                            <script th:inline="javascript">-->
+<!--                                sportsmanId = [[${sportsman.id}]]-->
+<!--                            </script>-->
                         </button>
                         <button id="edit" class="edit">
                             <img src="../../static/pics/pencil-box.svg" alt="../../static/pics/pencil-box.svg">
