@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sportsmanSpan.textContent = name;
     }
 
-    function openPopup(name, sportsmanId) {
+    function openPopup(name) {
         updatePopupText(name);
         popup.classList.add('open');
     }
@@ -42,32 +42,34 @@ document.addEventListener('DOMContentLoaded', () => {
         const target = event.target;
         if (editable.selected) {
             finishEditing(editable.selected);
+            const row = event.target.closest('tr');
             const editButton = row.querySelector('.edit');
             editButton.classList.remove('clicked');
         }
         if (target.id === 'btn-delete') {
             event.preventDefault();
-            const sportsmanId = lastClickedButton.getAttribute('sportsman-id');
-            const competitionId = lastClickedButton.getAttribute('competition-id');
-            const url = `/registration/general/${competitionId}/${sportsmanId}`;
+            // const sportsmanId = lastClickedButton.getAttribute('sportsman-id');
+            // const competitionId = lastClickedButton.getAttribute('competition-id');
+            // const url = `/registration/general/${competitionId}/${sportsmanId}`;
 
-            fetch(url, {
-                method: 'DELETE',
-            })
-            .then(response => {
-                if (response.ok) {
-                    const row = lastClickedButton.closest('tr');
-                    deleteTableRow(row);
-                    lastClickedButton.closest('tr').remove();
-                } else {
-                    console.error('Ошибка при удалении спортсмена');
-                }
-            })
-            .catch(error => {
-                console.error('Ошибка отправки запроса на удаление:', error);
-            });
+            // fetch(url, {
+            //     method: 'DELETE',
+            // })
+            //     .then(response => {
+            //         if (response.ok) {
+                        const row = lastClickedButton.closest('tr');
+                        deleteTableRow(row);
+                        lastClickedButton.closest('tr').remove();
+            //         } else {
+            //             console.error('Ошибка при удалении спортсмена');
+            //         }
+            //     })
+            //     .catch(error => {
+            //         console.error('Ошибка отправки запроса на удаление:', error);
+            //     });
         }
     });
+
 
     table.addEventListener('click', (event) => {
         const target = event.target;
@@ -96,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function finishEditing(row, sportsmanId) {
+    function finishEditing(row) {
         editable.selected = null;
         row.classList.remove('editing-row');
 

@@ -1,24 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const submitButton = document.querySelector('button[type="submit"]');
+  const form = document.querySelector('form');
+  // const competitionId = form.getAttribute('th:value');
 
-  submitButton.addEventListener('click', function(event) {
+  const gotoRegButton = document.getElementById('gotoReg');
+  const addAnotherMemberButton = document.getElementById('addAnotherMember');
+
+  console.log(competitionId);
+
+  gotoRegButton.addEventListener('click', function(event) {
     event.preventDefault();
-
-    const forms = document.querySelectorAll('form');
-
-    forms.forEach(function(form) {
-      form.submit();
-    });
+    form.action = `/registration/preliminary/add_new/${competitionId}/general`;
+    form.submit();
   });
-});
-// не работает перенаправление не заходит в листнер
-document.getElementById('gotoReg').addEventListener('click', function() {
-  var url = '/registration/preliminary/add_new/' + competitionId + '/general';
-  console.log(url);
-  window.location.href = url;
-});
-document.getElementById('addAnotherMember').addEventListener('click', function() {
-  var url = '/registration/preliminary/add_new/' + competitionId + '/preliminary';
-  console.log(url);
-  window.location.href = url;
+
+  addAnotherMemberButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    form.action = `/registration/preliminary/add_new/${competitionId}/preliminary`;
+    form.submit();
+  });
 });
