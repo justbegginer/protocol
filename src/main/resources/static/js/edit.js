@@ -55,11 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
             fetch(url, {
                 method: 'DELETE',
             })
-            .then(response => {
-                const row = lastClickedButton.closest('tr');
-                deleteTableRow(row);
-                lastClickedButton.closest('tr').remove();
-            });
+                .then(response => {
+                    const row = lastClickedButton.closest('tr');
+                    deleteTableRow(row);
+                    lastClickedButton.closest('tr').remove();
+                });
         }
     });
 
