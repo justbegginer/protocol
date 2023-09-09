@@ -74,7 +74,7 @@
             </table>
         </div>
         <button id="registerButton">Зарегистрировать</button>
-        <button id="addParticipantButton"><a href="pre-reg.html">Добавить нового участника</a></button>
+        <button id="addParticipantButton"><a th:href="@{/registration/preliminary/{competition_id}(competition_id=${sportsmen.get(0).getCompetition().id})}">Добавить нового участника</a></button>
     </main>
     <div class="popup" id="popup" data-sportsman-id="">
         <div class="popup-body">
