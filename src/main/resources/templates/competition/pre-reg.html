@@ -2,97 +2,100 @@
 <html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Регистрация</title>
+    <link href="../../static/css/popup.css" rel="stylesheet">
+    <link href="../../static/css/pre-reg.css" rel="stylesheet">
     <link href="../../static/css/styles.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../static/css/reg.css">
+    <title>Предварительная регистрация</title>
 </head>
 <body>
-<!--    <header class="menu-container">-->
-<!--        <div class="menu">-->
-<!--            <a class="menu-item" th:href="@{/registration/preliminary/{id}(id=${competition.id})}"-->
-<!--               data-page="pre-registration">Предварительная регистрация</a>-->
-<!--            <a class="menu-item menu-item&#45;&#45;active" th:href="@{/registration/general/{id}(id=${competition.id})}"-->
-<!--               data-page="registration">Регистрация</a>-->
-<!--            <a class="menu-item" href="../templates/competition/draw.html" data-page="draw">Жеребьёвка</a>-->
-<!--            <a class="menu-item" href="../templates/competition/intermediateResult.html" data-page="intermediate-results">Промежуточные-->
-<!--                результаты</a>-->
-<!--            <a class="menu-item" href="../templates/competition/finalRes.html" data-page="final-results">Итоговые-->
-<!--                результаты</a>-->
-<!--            <a class="menu-item" href="../templates/competition/finalGrids.html" data-page="final-grids">Формирование-->
-<!--                финальных сеток</a>-->
-<!--            <a class="menu-item" href="../templates/competition/finalSparringResults.html"-->
-<!--               data-page="final-sparring-results">Финальные результаты спарринга</a>-->
-<!--        </div>-->
-<!--    </header>-->
-<main>
-    <h1>Регистрация</h1>
-    <h3>Вы можете подтвердить, удалить участника или
-        <br>изменить его данные</h3>
-    <div class="table-container">
-        <table id="myTable" class="myTable">
-            <thead>
-            <tr>
-                <th></th>
-                <th>Спортсмен</th>
-                <th>Дата рождения</th>
-                <th>Пол</th>
-                <th>Класс лука</th>
-                <th>Разряд</th>
-                <th>Регион</th>
-                <th>Членство в спорт. федерации</th>
-                <th>Клуб</th>
-                <th>Телефон</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="sportsman : ${sportsmen}">
-                <td class="empty">
-                    <button class="confirm">
-                        <img class="confirm" src="../../static/pics/checkbox-marked.svg"
-                             alt="../../static/pics/checkbox-marked.svg">
-                    </button>
-                    <button id="openPopup" class="openPopup" th:data-sportsman-id="${sportsman.id}"
-                            th:competition-id="${sportsman.competition.getId()}">
-                        <img class="delete" src="../../static/pics/close-box.svg"
-                             alt="../../static/pics/close-box.svg">
-                    </button>
-                    <button id="edit" class="edit">
-                        <img src="../../static/pics/pencil-box.svg" alt="../../static/pics/pencil-box.svg">
-                    </button>
-                </td>
-                <td class="sportsman" th:text="${sportsman.name}"></td>
-                <td class="date" th:text="${sportsman.date}"></td>
-                <td class="gender" th:text="${sportsman.gender}"></td>
-                <td class="class" th:text="${sportsman.bowClass}"></td>
-                <td class="razryad" th:text="${sportsman.category}"></td>
-                <td class="region" th:text="${sportsman.region}"></td>
-                <td class="member" th:text="${sportsman.federationMembership}"></td>
-                <td class="club" th:text="${sportsman.club}"></td>
-                <td class="phone" th:text="${sportsman.telephoneNumber}"></td>
-            </tr>
-            </tbody>
-        </table>
+<header class="menu-container">
+    <div class="menu">
+        <a class="menu-item menu-item--active" th:href="@{/registration/preliminary/{id}(id=${competition.id})}"
+           data-page="pre-registration">Предварительная регистрация</a>
+        <a class="menu-item" th:href="@{/registration/general/{id}(id=${competition.id})}" data-page="registration">Регистрация</a>
+        <a class="menu-item" href="../templates/competition/draw.html" data-page="draw">Жеребьёвка</a>
+        <a class="menu-item" href="../templates/competition/intermediateResult.html" data-page="intermediate-results">Промежуточные
+            результаты</a>
+        <a class="menu-item" href="../templates/competition/finalRes.html" data-page="final-results">Итоговые
+            результаты</a>
+        <a class="menu-item" href="../templates/competition/finalGrids.html" data-page="final-grids">Формирование
+            финальных сеток</a>
+        <a class="menu-item" href="../templates/competition/finalSparringResults.html"
+           data-page="final-sparring-results">Финальные результаты спарринга</a>
     </div>
-    <button id="registerButton">Зарегистрировать</button>
-    <button id="addParticipantButton"><a href="pre-reg.html">Добавить нового участника</a></button>
-</main>
-<div class="popup" id="popup" data-sportsman-id="">
-    <div class="popup-body">
-        <div class="popup_content">
-            <button id="closePopup">
-                <img class="popup-close-btn" src="../../static/pics/крестик.svg" alt="/templates/src/крестик.svg">
-            </button>
-            <img class="alert" src="../../static/pics/alert-circle.svg" alt="/templates/src/alert-circle.svg">
-            <div class="popup-title"><h1 class="title">Удалить участника</h1></div>
-            <div class="popup-text">
-                Вы уверены, что хотите удалить<br> участника <span class="sportsman"></span>?<br>
+</header>
+<h1>Предварительная регистрация</h1>
+<h3>Для регистрации заполните все поля или
+    <br>загрузите данные из Google-таблицы</h3>
+<div>
+    <label>Загрузите данные из Google-таблицы</label><br>
+    <input class="google-file" type="url" name="google_url" placeholder="Ведите ссылку на таблицу">
+</div>
+<form th:action="@{/registration/preliminary/add_new/{id}/general(id=${competition.getId()})}" method="post">
+    <script th:inline="javascript">
+        const competitionId = [[${competition.getId()}]];
+    </script>
+    <div class="container">
+        <div class="box">
+            <label>ФИО</label>
+            <br><input type="text" placeholder="Введите ФИО" th:field="${sportsman.name}">
+            <label class="gender-label">Пол</label>
+            <div class="radio-group">
+                <input id="male-gender" type="radio" name="gender">
+                <label for="male-gender" class="gender-option">Мужчина</label>
+
+                <input id="female-gender" type="radio" name="gender">
+                <label for="female-gender" class="gender-option">Женщина</label>
             </div>
-            <button id="btn-cancel">отмена</button>
-            <button id="btn-delete">Удалить</button>
+            <label for="razryad">Спортивный разряд/звание</label>
+            <br>
+            <select id="razryad" name="razryad" th:field="${sportsman.category}">
+                <option value="choice">Выберите разряд</option>
+                <option value="1">1 разряд</option>
+                <option value="2">2 разряд</option>
+                <option value="3">3 разряд</option>
+                <option value="kms">КМС</option>
+                <option value="ms">МС</option>
+                <option value="msmk">МСМК</option>
+            </select>
+            <label>Членство в спортивной федерации</label>
+            <br><input type="text" placeholder="Введите членство" th:field="${sportsman.federationMembership}">
+            <label>Номер телефона</label><br>
+            <input type="tel" placeholder="+7 (999) 999 99-99" required th:field="${sportsman.telephoneNumber}">
+        </div>
+
+        <div class="box">
+            <label>Дата рождения</label>
+            <br><input type="date" id="date" name="date" placeholder="ДД / ММ / ГГГГ" th:field="${sportsman.date}">
+            <label for="class">Класс лука</label> <br>
+            <select id="class" name="class" th:field="${sportsman.bowClass}">
+                <option value="choice">Выберите класс лука</option>
+                <option value="block">Блочный лук</option>
+                <option value="classic">Классический лук</option>
+            </select>
+            <label>Регион</label>
+            <br><input type="text" id="place" name="place" placeholder="Ведите регион" th:field="${sportsman.region}">
+            <label>Клубная принадлежность</label>
+            <br><input type="text" id="club" name="club" placeholder="Введите клуб" th:field="${sportsman.club}">
+        </div>
+    </div>
+</form>
+<button type="button" class="openPopup">Зарегистрировать</button>
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <button id="closePopup">
+            <img src="../../static/pics/close.svg" alt="Close">
+        </button>
+        <img class="ok" src="../../static/pics/checkMark.svg">
+        <p class="done">Участник <br>
+            зарегистрирован</p>
+        <div class="button-container">
+            <button id="gotoReg" type="submit">Перейти к регистрации</button>
+            <button id="addAnotherMember" type="submit">Добавить нового участника +</button>
         </div>
     </div>
 </div>
-<script src="../../static/js/addNew.js"></script>
-<script src="../../static/js/edit.js"></script>
+<script src="../../static/js/openPopup.js"></script>
+<script src="../../static/js/submitForm.js"></script>
 </body>
 </html>
